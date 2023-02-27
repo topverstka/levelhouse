@@ -1,0 +1,191 @@
+@media (max-width: 992px){
+    .house{
+        //background-color: #f1ede9;
+        background-color: #f2f1ee;
+        .night-mode{
+            display: none;
+        }
+
+        &.night-mode{
+            .house__bg--mob{
+                display: none;
+            }
+            .house__pretitle{
+                color: #fff;
+            }
+            .house__title{
+                color: #fff;
+            }
+            .house__title-descr{
+                color: #fff;
+            }
+            .night-mode.house__bg--mob{
+                display: block;
+            }
+        }
+    }
+
+    .house__bg{
+        display: none;
+    }
+    .house__bg--mob{
+        display: block;
+        margin-top: -49.760417VW;
+        z-index: -1;
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .house__pretitle{
+        font-size: 5.9375VW;
+        margin-bottom: 1.25VW;
+        text-align: center;
+    }
+    .house__title{
+        font-size: 8VW;
+        margin-bottom: 6.25VW;
+    }
+    .house__title-descr{
+        font-size: 3.125VW;
+        text-align: center;
+        line-height: 5.625VW;
+    }
+
+    .container--house-card{
+        margin-top: -22.1875VW;
+    }
+
+    .house-card{
+        height: 31.874999999999996VW;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 11.875VW;
+        background-color: #fff;
+        border-radius: 6.25VW;
+        margin-bottom: 5VW;
+    }
+    .house-card__icon{
+        margin-right: 6.5625VW;
+    }
+    .house-card__text{
+        width: 58.12500000000001VW;
+        font-size: 4.0625VW;
+        line-height: 5.9375VW;
+    }
+}
+
+@media (min-width: 992px){
+    .house{
+        padding-top: 5.885416666666667VW;
+        height: 55.3125VW;
+        .night-mode{
+            display: none;
+        }
+        &.night-mode{
+            .night-mode{
+                display: block;
+            }
+            .house__pretitle{
+                color: #fff;
+            }
+            .house__title{
+                color: #fff;
+            }
+            .house__title-descr{
+                color: #fff;
+            }
+        }
+    }
+    .house__bg--mob{
+        display: none !important;
+    }
+    .house__pretitle{
+        font-size: 1.9270833333333335VW;
+        margin-bottom: 0.625VW;
+        text-align: center;
+    }
+
+    .house__title{
+        font-size: 4.0625VW;
+        margin-bottom: 1.1979166666666667VW;
+    }
+
+    .house__title-descr{
+        font-size: 0.8333333333333334VW;
+        color: #606465;
+        text-align: center;
+    }
+
+    .house{
+        height: 55.260416666666664VW;
+        position: relative;
+        padding-top: 5.78125VW;
+    }
+
+    .house__bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .house__bg--mob{
+        display: none;
+    }
+
+    .house-card{
+        background-color: #fff;
+        border-radius: 1.0416666666666665VW;
+        height: 6.5625VW;
+        padding-left: 2.2916666666666665VW;
+        display: inline-flex;
+        position: absolute;
+        align-items: center;
+    }
+
+    .house-card--1{
+        top: 16.510416666666668VW;
+        left: 12.083333333333334VW;
+        width: 19.427083333333332VW;
+    }
+    
+    .house-card--2{
+        top: 17.34375VW;
+        right: 16.927083333333336VW;
+        width: 19.322916666666668VW;
+    }
+
+    .house-card--3{
+        top: 39.270833333333336VW;
+        left: 15.572916666666666VW;
+        width: 19.0625VW;
+    }
+
+    .house-card--4{
+        top: 33.645833333333336VW;
+        right: 18.958333333333332VW;
+        width: 23.645833333333332VW;
+    }
+
+    .house-card__icon{
+        position: relative;
+        margin-right: 0.78125VW;
+        &::before{
+            content: '';
+            width: 1.5104166666666667VW;
+            height: 0.052083333333333336VW;
+            display: block;
+            background-color: #3d7de7;
+            position: absolute;
+            left: 0;
+            top: -0.625VW;
+        }
+    }
+
+    .container--house-card{
+        width: 100%;
+        position: static;
+    }
+}

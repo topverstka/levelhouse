@@ -1,0 +1,26 @@
+@import 'interface';
+@import 'grid';
+@import 'header';
+
+// Элементы
+@import 'elements/buttons';
+@import 'elements/forms';
+@import 'elements/swiper';
+@import 'elements/titles';
+@import 'elements/social';
+
+
+// Секции
+@import 'sections/firstscreen';
+@import 'sections/about';
+@import 'sections/relax';
+@import 'sections/presentation';
+@import 'sections/house';
+@import 'sections/safety';
+@import 'sections/projects';
+@import 'sections/map';
+@import 'sections/contacts';
+
+
+@import 'modal';
+@import 'footer';

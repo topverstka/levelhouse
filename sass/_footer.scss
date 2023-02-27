@@ -1,0 +1,153 @@
+
+@media (max-width: 992px){
+	footer{
+		position: relative;
+		text-align: center;
+	}
+
+	.footer-decortion{
+        display: none;
+    }
+
+	.footer-decortion--mob{
+		position: absolute;
+		display: block;
+        //top: -300px;
+        left: 50%;
+        transform: translateX(-50%);
+		margin-top: -17.8125VW;
+		
+		z-index: 1;
+		width: 100%;
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.footer__logo{
+		text-align: center;
+		margin: 0 auto;
+		margin-bottom: 8.4375VW;
+		img{
+			margin-bottom: 6.5625VW;
+			width: 32.1875VW;
+		}
+		
+	}
+
+	.btn--footer{
+		margin: 0 auto;
+		width: 100%;
+		height: 20VW;
+		margin-bottom: 15.625VW;
+	}
+
+	.footer__presentation{
+		display: inline-flex;
+		align-items: center;
+		color: #2b5bc1;
+		margin: 0 auto;
+		margin-bottom: 22.8125VW;
+		img{
+			margin-right: 5VW;
+		}
+		span{
+			text-decoration: underline;
+		}
+	}
+
+	.header__burger--footer{
+		display: none;
+	}
+}
+
+		
+@media (min-width: 992px){
+	footer{
+		padding-top: 1.3020833333333335VW;
+		background-color: #fff;
+	
+		.wrap{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+	
+	}
+	
+	.header__burger--footer{
+		background-color: #e7f0ff;
+	}
+
+
+	footer{
+		padding-bottom: 2.5VW;
+		.wrap{
+			display: flex;
+			justify-content: space-between;
+			padding-top: 4.21875VW;
+		}		
+	}
+
+	.footer-decortion{
+        position: absolute;
+        //top: -300px;
+        left: 50%;
+        transform: translateX(-50%);
+		height: 100px;
+		margin-top: -3.90625VW;
+		width: 100%;
+    }
+
+	.footer-decortion--mob{
+		display: none;
+	}
+		
+	.footer__logo{
+		display: flex;
+		align-items: center;
+		img{
+			margin-right: 1.4583333333333333VW;
+		}
+	}
+
+	.footer__logo-descr{
+		font-size: 0.625VW;
+		line-height: 1.1979166666666667VW;
+		color: #303d68;
+		position: relative;
+		top: 0.26041666666666663VW;
+	}
+	
+	.btn--footer{
+		height: 3.3333333333333335VW;
+		width: 14.6875VW;
+		font-size: 0.625VW;
+		position: relative;
+		left: 1.0416666666666665VW;
+	}
+
+	.footer-right{
+		display: flex;
+		align-items: center;
+	}
+
+	.footer__presentation{
+		display: flex;
+		align-items: center;
+		color: #2b5bc1;
+		margin-right: 2.3958333333333335VW;
+		img{
+			margin-right: 0.8333333333333334VW;
+		}
+		span{
+			text-decoration: underline;
+		}
+	}
+	
+}
+
+	
+
+

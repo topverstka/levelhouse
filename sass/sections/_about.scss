@@ -1,0 +1,467 @@
+
+
+
+@media (max-width: 992px){
+    .about__bg{
+        position: absolute;
+        top: -35.9375VW;
+        left: 0;
+        z-index: 1;
+        display: none;
+    }
+    
+    .about__bg--mob{
+        position: absolute;
+        top: -14.0625VW;
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    
+    .about__title{
+        font-size: 5.9375VW;
+        margin-bottom: 7.8125VW;
+    }
+    
+    .about-slider{
+        position: relative;
+    }
+    
+    .about-slide-info{
+        background-color: #fff;
+    }
+    .btn--about{
+        width: 100%;
+        height: 27.500000000000004VW;
+    }
+    
+    .about-slide-img{
+        background-color: #e6ecf8;
+        border: 3.125VW solid #e6ecf8;
+        border-radius: 6.25VW;
+        height: 71.25VW;
+        position: relative;
+        overflow: hidden;
+        img{
+            border-radius: 6.25VW;
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            left: 50%;
+            max-width: none;
+            height: 100%;
+        }
+    }
+    
+    .about-advantages-slide-img{
+        width: 73.125VW;
+        height: 73.125VW;
+        border-radius: 50%;
+        background-color: #eaf0f9;
+        position: relative;
+        img{
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+    .about-advantages-slider__controls{
+        position: relative;
+    }
+
+
+    .about{
+        position: relative;
+        padding-top: 14.6875VW;
+        .container{
+            z-index: 1;
+        }
+    }
+    .container--mob{
+        width: 100%;
+    }
+    .about{
+        height: auto;
+        padding-bottom: 12.5VW;
+    }
+    .about-slider{
+        padding-bottom: 22.1875VW;
+    }
+
+    .about-slide{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+    .about-slide-img{
+        margin-bottom: 4.6875VW;
+    }
+    .about-slide-info{
+        width: 95%;
+        margin: 0 auto;
+        padding: 7.187499999999999VW 3.75VW;
+        padding-top: 9.0625VW;
+        border-radius: 6.25VW;
+    }
+    .about-slide__title{
+        font-size: 7.187499999999999VW;
+        margin-bottom: 9.0625VW;
+    }
+    .about-slide__descr{
+        font-size: 3.4375000000000004VW;
+        width: 60.9375VW;
+        text-align: left;
+        margin: 0 auto;
+        line-height: 5.625VW;
+        margin-bottom: 8.75VW;
+    }
+    .btn--about{
+        height: 20VW;
+        font-size: 3.4375000000000004VW;
+    }
+
+    .swiper-pagination--about{
+        position: relative;
+        top: 12.5VW;
+        .swiper-pagination-bullet{
+            height: 2.1875VW;
+            width: 2.1875VW;
+            margin-right: 1.875VW;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+
+
+
+
+    .about-advantages-slider{
+        margin-top: -11.25VW;
+        margin-bottom: 0;
+    }
+    .swiper-prev--about-advantages, .swiper-next--about-advantages{
+        display: none;
+    }
+
+    .about-advantages-slider__controls{
+        width: 100%;
+        display: block;
+    }
+    .swiper-pagination--about-advantages{
+        justify-content: center;
+        margin: 0 auto;
+        position: static;
+    }
+
+    .swiper-pagination--about-advantages{
+        position: relative;
+        .swiper-pagination-bullet{
+            height: 2.1875VW;
+            width: 2.1875VW;
+            margin-right: 1.875VW;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+
+
+    .about-advantages-slide{
+        padding-top: 23.4375VW;
+    }
+
+    .about-advantages-slide-img{
+        width: 60.62499999999999VW;
+        height: 60.62499999999999VW;
+    }
+
+    .about-advantages-slide-img{
+        margin: 0 auto;
+    }
+    .about-advantages-slide__title{
+        margin-bottom: 72.8125VW;
+        margin-top: -82.8125VW;
+    }
+    .about-advantages-slide__text{
+        font-size: 3.75VW;
+        width: 78.75VW;
+        line-height: 5.625VW;
+        color: #8e8e8e;
+        margin-bottom: 6.5625VW;
+    }
+    .about-advantages-slide__action{
+        font-size: 3.75VW;
+        color: #000;
+        text-decoration: underline;
+        margin-bottom: 12.5VW;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 992px){
+    .about__bg{
+        position: absolute;
+        top: -5.989583333333334VW;
+        left: 0;
+        z-index: 1;
+        display: none;
+    }
+    
+    .about__bg--mob{
+        position: absolute;
+        top: -2.34375VW;
+    }
+    
+    .about__title{
+        font-size: 0.9895833333333333VW;
+        margin-bottom: 1.3020833333333335VW;
+    }
+    
+    .about-slider{
+        position: relative;
+    }
+    
+    .about-slide-info{
+        background-color: #fff;
+    }
+    .btn--about{
+        width: 100%;
+        height: 4.583333333333333VW;
+    }
+    
+    .about-slide-img{
+        background-color: #e6ecf8;
+        border: 0.5208333333333333VW solid #e6ecf8;
+        border-radius: 1.0416666666666665VW;
+        height: 11.875VW;
+        position: relative;
+        overflow: hidden;
+        img{
+            border-radius: 1.0416666666666665VW;
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            left: 50%;
+            max-width: none;
+            height: 100%;
+        }
+    }
+    
+    .about-advantages-slide-img{
+        width: 12.1875VW;
+        height: 12.1875VW;
+        border-radius: 50%;
+        background-color: #eaf0f9;
+        position: relative;
+        img{
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+    .about-advantages-slider__controls{
+        position: relative;
+    }
+
+
+    .about{
+        height: 60.62499999999999VW;
+        position: relative;
+        .container{
+            z-index: 1;
+        }
+    }
+    .about{
+        padding-top: 6.354166666666666VW;
+        padding-bottom: 6.822916666666666VW;
+    }
+    .about__bg--mob{
+        display: none;
+    }
+    .about__bg{
+        position: absolute;
+        display: block;
+        top: -5.989583333333334VW;
+        left: 0;
+        z-index: 1 ;
+    }
+    .about__title{
+        margin-bottom: 3.5416666666666665VW;
+        font-size: 2.65625VW;
+        br{
+            display: none;
+        }
+    }
+
+    .about-slider{
+        overflow: hidden;
+        height: 23.333333333333332VW;
+        .swiper-wrapper{
+            flex-direction: column;
+        }
+    }
+
+    .about-slide{
+        display: flex;
+        
+    }
+
+    .about-slide-info{
+        padding-top: 4.427083333333334VW;
+        padding-left: 3.5937499999999996VW;
+        padding-right: 3.5937499999999996VW;
+        padding-bottom: 3.5937499999999996VW;
+        border-radius: 1.0416666666666665VW;
+        width: 26.822916666666668VW;
+        position: relative;
+    }
+    .about-slide__title{
+        font-size: 1.6666666666666667VW;
+        margin-bottom: 1.9791666666666665VW;
+    }
+    .about-slide__descr{
+        font-size: 0.8333333333333334VW;
+        text-align: left;
+        padding-left: 2.96875VW;
+        position: relative;
+        margin-bottom: 2.083333333333333VW;
+        &:before{
+            content: '';
+            display: block;
+            background-color: #3d7de7;
+            width: 1.5104166666666667VW;
+            height: 0.052083333333333336VW;
+            position: absolute;
+            left: 0.625VW;
+            top: 0.26041666666666663VW;
+        }
+    }
+    .about-slide-img{
+        border: 0.5208333333333333VW solid #e6ecf8;
+        position: relative;
+        border-radius: 0px 1.0416666666666665VW 1.0416666666666665VW 0px;
+        border-left: 0;
+        height: 19.791666666666664VW;
+        width: 39.53125VW;
+        z-index: -1;
+        left: -0.5208333333333333VW;
+        top: 0.7291666666666666VW;
+        img{
+            border-radius: 0px 1.0416666666666665VW 1.0416666666666665VW 0px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            transform: none;
+        }
+    }
+    .swiper-pagination--about{
+        position: absolute;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        transform: translateY(-50%);
+        .swiper-pagination-bullet{
+            margin-bottom: 0.46875VW;
+            width: 0.6770833333333334VW;
+            height: 0.6770833333333334VW;
+        }
+    }
+
+    .about-advantages-slider{
+        margin-top: 4.166666666666666VW;
+    }
+
+    .about-advantages-slide{
+        display: flex;
+    }
+    .about-advantages-slide-img{
+        flex-shrink: 0;
+        position: relative;
+        bottom: 0.78125VW;
+    }
+
+    .about-advantages-slide-info{
+        text-align: left;
+        margin-left: 1.40625VW;
+    }
+    .about-advantages-slide__title{
+        font-size: 1.25VW;
+        line-height: 1.6145833333333335VW;
+        font-family: 'Gilroy-Medium';
+        margin-bottom: 1.3541666666666667VW;
+    }
+    .about-advantages-slide__text{
+        font-size: 0.8333333333333334VW;
+        color: #949493;
+        margin-bottom: 1.6145833333333335VW;
+    }
+    .about-advantages-slide__action{
+        font-size: 0.8333333333333334VW;
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .about-advantages-slider__controls{
+        position: relative;
+        width: 15.625VW;
+        display: flex;
+        .swiper-pagination{
+            display: flex;
+            position: relative;
+        }
+        .swiper-pagination-bullet{
+            width: 0.6770833333333334VW;
+            height: 0.6770833333333334VW;
+            margin-right: 0.6770833333333334VW;
+            flex-shrink: 0;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+
+    .swiper-prev--about-advantages{
+        width: 0.5208333333333333VW;
+        position: relative;
+        margin-right: 1.8229166666666667VW;
+        display: block;
+    }
+
+    .swiper-next--about-advantages{
+        width: 0.5208333333333333VW;
+        position: relative;
+        margin-left: 2.083333333333333VW;
+        display: block;
+    }
+    
+}

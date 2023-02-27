@@ -1,0 +1,53 @@
+   
+input, textarea{
+    border: none;
+    border-radius: 3.75VW;
+    border: 0.3125VW solid #434343;
+    width: 100%;
+    background-color: transparent;
+    padding-top: 7.187499999999999VW;
+    padding-left: 9.375VW;
+    padding-bottom: 7.5VW;
+    padding-right: 9.375VW;
+    font-size: 3.125VW;
+    margin-bottom: 6.875000000000001VW;
+}
+
+input{
+    height: 18.4375VW;
+}
+
+input, textarea, button{
+    outline: none;
+    &:focus:required:invalid{
+        border-color: red
+    } 
+    &:required:valid{
+        border-color: green;
+    }
+}
+
+@media (min-width: 992px){
+    input, textarea{
+        border-radius: 1.0416666666666665VW;
+        border: 0.052083333333333336VW solid #434343;
+        width: 100%;
+        background-color: transparent;
+        padding-top: 1.1979166666666667VW;
+        padding-left: 1.5625VW;
+        padding-bottom: 1.25VW;
+        padding-right: 1.5625VW;
+        font-size: 0.5208333333333333VW;
+        margin-bottom: 1.1458333333333333VW;
+
+
+
+        font-size: 0.625VW;
+        margin-bottom: 1.3541666666666667VW;
+        padding: 1.40625VW 1.8229166666666667VW;
+    }
+    input{
+        height: 3.5416666666666665VW;
+        
+    }
+}

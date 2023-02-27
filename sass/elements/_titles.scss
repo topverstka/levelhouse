@@ -1,0 +1,39 @@
+h1,h2,h3,h4{
+    font-family: $titles_font;
+    margin: 0;
+    color: #000;
+}
+
+h1{
+    font-size: 6.875000000000001VW;
+    margin-bottom: 15.625VW;
+    text-transform: uppercase;
+}
+    
+h2{
+    font-size: 6.25VW;
+    text-align: center;
+    position: relative;
+    color: #525252;
+    margin: 0 auto;
+}
+
+
+
+
+@media (min-width: 992px){
+
+    h1{
+        font-size: 1.1458333333333333VW;
+        margin-bottom: 2.604166666666667VW;
+        text-transform: uppercase;
+    }
+        
+    h2{
+        font-size: 1.0416666666666665VW;
+    }
+
+    h2{
+        font-size: 2.65625VW;
+    }
+}

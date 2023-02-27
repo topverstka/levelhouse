@@ -1,0 +1,12 @@
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px){
+    .container{
+        position: relative;
+        width: 71.92708333333333VW;
+    }  
+}
+    

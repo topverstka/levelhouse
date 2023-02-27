@@ -1,0 +1,136 @@
+
+@media (max-width: 992px){
+    .map{
+        padding-top: 19.0625VW;
+       // background-color: #f2efeb;
+       background-color: #f2f1ee;
+    }
+    .map__title{
+        font-size: 7.187499999999999VW;
+        margin-bottom: 5.9375VW;
+    }
+    .map__img{
+        display: none;
+    }
+    .map__img--img{
+        display: block;
+        height: 214.6875VW;
+        img{
+            height: 100%;
+        }
+    }
+
+    .map-info{
+        width: 87.1875VW;
+        padding-top: 10.3125VW;
+        padding-left: 11.5625VW;
+        padding-right: 11.5625VW;
+        padding-bottom: 12.1875VW;
+        background-color: #fff;
+        border-radius: 6.25VW;
+        margin: 0 auto;
+        margin-top: -98.4375VW;
+        position: relative;
+    }
+    .map-info__adress{
+        font-size: 3.125VW;
+        line-height: 4.0625VW;
+        margin-bottom: 5.3125VW;
+
+    }
+    .map-info__coord{
+        line-height: 4.375VW;
+        font-size: 3.125VW;
+        color: #c4c4c4;
+        margin-bottom: 13.125VW;
+    }
+    .map-info__advantages-item{
+        font-size: 4.375VW;
+        margin-bottom: 12.1875VW;
+        position: relative;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        &:before{
+            top: -6.25VW;
+            left: 0;
+            position: absolute;
+            content: '';
+            display: block;
+            height: 0.3125VW;
+            width: 15.937499999999998VW;
+            background-color: #3d7de7;
+        }
+    }
+}
+
+@media (min-width: 992px){
+    .map{
+        padding-top: 5VW;
+    }
+    .map__title{
+        margin-bottom: 3.5416666666666665VW;
+        font-size: 2.3958333333333335VW;
+    }
+
+    .map__img{
+        overflow: hidden;
+        border-radius: 1.0416666666666665VW;
+        position: relative;
+        z-index: -1;
+    }
+    .map__img--img{
+        display: none;
+    }
+
+    .map-info{
+        width: 60.520833333333336VW;
+        padding: 2.65625VW 3.802083333333333VW;
+        background-color: #fff;
+        border-radius: 1.0416666666666665VW;
+        box-shadow: 0px 0px 1.9791666666666665VW 0px rgba(0, 0, 0, 0.09);
+        margin: 0 auto;
+        margin-top: -8.541666666666666VW;
+        z-index: 2;
+        padding-right: 6.09375VW;
+    }
+
+    .map-info__adress{
+        font-size: 0.9375VW;
+        color: #808080;
+        margin-bottom: 0.625VW;
+        br{
+            display: none;
+        }
+    }
+
+    .map-info__coord{
+        color: #bbbbbb;
+        font-size: 0.9375VW;
+        margin-bottom: 3.75VW;
+        br{
+            display: none;
+        }
+    }
+
+    .map-info__advantages{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .map-info__advantages-item{
+        font-size: 0.9375VW;
+        color: #676767;
+        position: relative;
+        &:before{
+            top: -1.3020833333333335VW;
+            left: 0;
+            position: absolute;
+            content: '';
+            display: block;
+            height: 0.052083333333333336VW;
+            width: 3.3333333333333335VW;
+            background-color: #3d7de7;
+        }
+    }
+}

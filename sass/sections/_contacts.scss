@@ -1,0 +1,200 @@
+
+
+@media (max-width: 992px){
+    .contacts{
+        padding-top: 21.5625VW;
+        //background-color: #f2efeb;
+        background-color: #f2f1ee;
+        padding-bottom: 31.25VW;
+    }
+    .contacts__bg{
+        display: none;
+    }
+
+    .container--contacts{
+        width: 100%;
+    }
+
+    .contacts__img{
+        width: 100%;
+        margin-top: -15.625VW;
+    }
+
+    .contacts__title{
+        strong{
+            font-size: 16.5625VW;
+            font-weight: normal;
+            display: table;
+            text-transform: none;
+            font-weight: normal;
+            background: linear-gradient(180deg, #000000 67%, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #000;
+            margin: 0 auto;
+        }
+        span{
+            font-size: 3.125VW;
+            display: block;
+            line-height: 5VW;
+        }
+    }
+
+    .contacts__phone{
+        background-color: #fff;
+        height: 18.125VW;
+        width: 71.5625VW;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 6.25VW;
+        margin-bottom: 8.125VW;
+    }
+    .contacts__phone-icon{
+        margin-right: 4.375VW;
+    }
+    .contacts__phone-option{
+        position: absolute;
+        left: -4.6875VW;
+        top: -4.6875VW;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 9.375VW;
+        height: 9.375VW;
+        border-radius: 50%;
+        padding-top: 1.5625VW;
+        background-color: #fff;
+    }
+    .contacts__phone-number{
+        font-size: 5.625VW;
+        color: #0449bd;
+    }
+
+    .contacts__email{
+        display: flex;
+        justify-content: center;
+        margin-top: 9.375VW;
+        img{
+            margin-right: 5.3125VW;
+            flex-shrink: 0;
+        }
+    }
+
+    .contacts__email-link{
+        font-size: 5.625VW;
+        color: #0449bd;
+        span{
+            position: relative;
+            bottom: 0.625VW;
+        }
+    }
+}
+
+@media (min-width: 992px){
+    .contacts{
+        padding-top: 6.875000000000001VW;
+        position: relative;
+        padding-bottom: 6.770833333333333VW;
+    }
+    
+    .contacts__bg{
+        position: absolute;
+        bottom: -0.5208333333333333VW;
+        left: 0;
+        width: 100%;
+    }
+    .contacts__title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        strong{
+            font-size: 6.302083333333333VW;
+            display: table;
+            text-transform: none;
+            font-weight: normal;
+            background: linear-gradient(180deg, #000000 67%, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #000;
+            margin: 0;
+            margin-right: 3.177083333333333VW;
+            font-weight: normal;
+            font-family: 'Gilroy-Light';
+            position: relative;
+            bottom: 0.5208333333333333VW;
+        }
+        span{
+            font-size: 0.9375VW;
+            color: #5e5d5b;
+            text-align: left;
+            line-height: 1.5104166666666667VW;
+        }
+    }
+    .contacts__img{
+        position: relative;
+        top: -13.28125VW;
+        margin-bottom: -23.4375VW;
+    }
+
+    .contacts__phones{
+        display: flex;
+        justify-content: center;
+    }
+
+    .contacts__phone{
+        background-color: #fff;
+        height: 3.0208333333333335VW;
+        width: 11.927083333333334VW;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-right: 5.104166666666667VW;
+        border-radius: 1.0416666666666665VW;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    .contacts__phone-icon{
+        margin-right: 0.7291666666666666VW;
+    }
+    .contacts__phone-option{
+        position: absolute;
+        left: -0.78125VW;
+        top: -0.78125VW;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5625VW;
+        height: 1.5625VW;
+        border-radius: 50%;
+        padding-top: 0.26041666666666663VW;
+        background-color: #fff;
+    }
+    .contacts__phone-number{
+        font-size: 0.9375VW;
+        color: #0449bd;
+    }
+
+    .contacts__email{
+        display: flex;
+        justify-content: center;
+        margin-top: 2.8125VW;
+        img{
+            margin-right: 0.8854166666666666VW;
+            flex-shrink: 0;
+        }
+    }
+
+    .contacts__email-link{
+        font-size: 0.9375VW;
+        color: #0449bd;
+        span{
+            position: relative;
+            bottom: 0.10416666666666667VW;
+        }
+    }
+}

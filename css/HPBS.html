@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://hpb-s.com/services/pg_course/ -->
+<html lang="RU"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>(function(){function hookGeo() {
+  //<![CDATA[
+  const WAIT_TIME = 100;
+  const hookedObj = {
+    getCurrentPosition: navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),
+    watchPosition: navigator.geolocation.watchPosition.bind(navigator.geolocation),
+    fakeGeo: true,
+    genLat: 38.883333,
+    genLon: -77.000
+  };
+
+  function waitGetCurrentPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        hookedObj.tmp_successCallback({
+          coords: {
+            latitude: hookedObj.genLat,
+            longitude: hookedObj.genLon,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        hookedObj.getCurrentPosition(hookedObj.tmp_successCallback, hookedObj.tmp_errorCallback, hookedObj.tmp_options);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        navigator.getCurrentPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        hookedObj.watchPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  Object.getPrototypeOf(navigator.geolocation).getCurrentPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp_successCallback = successCallback;
+    hookedObj.tmp_errorCallback = errorCallback;
+    hookedObj.tmp_options = options;
+    waitGetCurrentPosition();
+  };
+  Object.getPrototypeOf(navigator.geolocation).watchPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp2_successCallback = successCallback;
+    hookedObj.tmp2_errorCallback = errorCallback;
+    hookedObj.tmp2_options = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${hookGeo}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'updateLocation':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          hookedObj.genLat = message.info.coords.lat;
+          hookedObj.genLon = message.info.coords.lon;
+          hookedObj.fakeGeo = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}hookGeo();})()</script>
+	
+	<title>HPBS</title>
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="HPBS">
+	<meta name="robots" content="index, follow, max-video-preview:-1, max-snippet:-1, max-image-preview:large">
+
+	<!-- This site is optimized with the Yoast SEO plugin v17.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<!-- Заметка для администратора: на этой странице не отображается мета-описание, потому что оно не задано. Укажите его для данной страницы, либо перейдите в меню [SEO - Отображение в поисковой выдаче] и настройте шаблон. -->
+	<link rel="canonical" href="https://hpb-s.com/services/pg_course/">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Курс по парниковым газам - HPBS">
+	<meta property="og:url" content="https://hpb-s.com/services/pg_course/">
+	<meta property="og:site_name" content="HPBS">
+	<meta property="article:modified_time" content="2021-09-15T10:42:17+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://hpb-s.com/#website","url":"https://hpb-s.com/","name":"HPBS","description":"\u0415\u0449\u0451 \u043e\u0434\u0438\u043d \u0441\u0430\u0439\u0442 \u043d\u0430 WordPress","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://hpb-s.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://hpb-s.com/services/pg_course/#webpage","url":"https://hpb-s.com/services/pg_course/","name":"\u041a\u0443\u0440\u0441 \u043f\u043e \u043f\u0430\u0440\u043d\u0438\u043a\u043e\u0432\u044b\u043c \u0433\u0430\u0437\u0430\u043c - HPBS","isPartOf":{"@id":"https://hpb-s.com/#website"},"datePublished":"2021-09-09T21:13:09+00:00","dateModified":"2021-09-15T10:42:17+00:00","breadcrumb":{"@id":"https://hpb-s.com/services/pg_course/#breadcrumb"},"inLanguage":"ru-RU","potentialAction":[{"@type":"ReadAction","target":["https://hpb-s.com/services/pg_course/"]}]},{"@type":"BreadcrumbList","@id":"https://hpb-s.com/services/pg_course/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"\u0413\u043b\u0430\u0432\u043d\u0430\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430","item":"https://hpb-s.com/"},{"@type":"ListItem","position":2,"name":"\u0423\u0441\u043b\u0443\u0433\u0438","item":"https://hpb-s.com/services/"},{"@type":"ListItem","position":3,"name":"\u041a\u0443\u0440\u0441 \u043f\u043e \u043f\u0430\u0440\u043d\u0438\u043a\u043e\u0432\u044b\u043c \u0433\u0430\u0437\u0430\u043c"}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/hpb-s.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.1"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./HPBS_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="dashicons-css" href="./HPBS_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./HPBS_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./HPBS_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="lbwps-styles-css" href="./HPBS_files/default.css" type="text/css" media="all">
+<link rel="stylesheet" id="searchandfilter-css" href="./HPBS_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="yoast-seo-adminbar-css" href="./HPBS_files/adminbar-1710.css" type="text/css" media="all">
+<link rel="https://api.w.org/" href="https://hpb-s.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://hpb-s.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://hpb-s.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.8.1">
+<link rel="shortlink" href="https://hpb-s.com/?p=334">
+<link rel="alternate" type="application/json+oembed" href="https://hpb-s.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://hpb-s.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F&amp;format=xml">
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+	<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+	<link rel="icon" href="https://hpb-s.com/wp-content/uploads/2021/09/cropped-logo-hpbs-32x32.png" sizes="32x32">
+<link rel="icon" href="https://hpb-s.com/wp-content/uploads/2021/09/cropped-logo-hpbs-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://hpb-s.com/wp-content/uploads/2021/09/cropped-logo-hpbs-180x180.png">
+<meta name="msapplication-TileImage" content="https://hpb-s.com/wp-content/uploads/2021/09/cropped-logo-hpbs-270x270.png">
+	<!--<link rel="icon" href="https://hpb-s.com/wp-content/themes/HPBS/assets/img/favicon.ico">-->
+	<link rel="stylesheet" href="./HPBS_files/normalize.css">
+	<link rel="stylesheet" href="./HPBS_files/aos.css">
+
+	<!-- Кастомые анимации -->
+	<link rel="stylesheet" href="./HPBS_files/animation.css">
+	<!-- / Кастомые анимации -->
+
+	<link rel="stylesheet" href="./HPBS_files/lightgallery.min.css">
+    <link rel="stylesheet" href="./HPBS_files/front.css"> 
+    <link rel="stylesheet" href="./HPBS_files/media.css"> 
+<style id="rds_highlighting">a.rds_hl_nofollow {text-decoration: line-through !important;}img.rds_hl_nofollow {outline: 1px dashed #000;}</style><link rel="stylesheet" href="./HPBS_files/widget.css"></head> 
+
+
+<body class=" customize-support" style="">
+	<header class="header">
+		<nav class="nav">
+			<div class="container">
+				<div class="nav-wrap">
+					<a href="https://hpb-s.com/" alt="" class="nav-logo__img">
+						<img src="./HPBS_files/logo.png" alt="" class="">
+					</a>
+					<div class="menu-glavnoe-menyu-container"><ul id="menu-glavnoe-menyu" class="nav-list"><li id="menu-item-51" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-51"><a href="https://hpb-s.com/services">Услуги</a>
+<ul class="sub-menu">
+	<li id="menu-item-336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-336"><a href="https://hpb-s.com/services/pg_course/#">Международная сертификация зданий и территорий</a>
+	<ul class="sub-menu">
+		<li id="menu-item-573" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-573"><a href="https://hpb-s.com/services/leed_about/">Сертификация объектов недвижимости по стандартам LEED</a></li>
+		<li id="menu-item-540" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-540"><a href="https://hpb-s.com/services/breeam/">Сертификация объектов недвижимости по стандартам BREEAM</a></li>
+		<li id="menu-item-574" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-574"><a href="https://hpb-s.com/services/well-standard/">Сертификация объектов недвижимости по стандартам WELL</a></li>
+		<li id="menu-item-575" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-575"><a href="https://hpb-s.com/services/iriis/">Сертификация и верификация инфраструктурных объектов IRIIS (ВЭБ)</a></li>
+	</ul>
+</li>
+	<li id="menu-item-337" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-337"><a href="https://hpb-s.com/services/pg_course/#">Управление климатическими рисками и парниковыми газами</a>
+	<ul class="sub-menu">
+		<li id="menu-item-606" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-606"><a href="https://hpb-s.com/services/co2-aviation/">Расчет углеродного следа по Охватам 1, 2 и 3 (Scope 1, 2, 3)</a></li>
+		<li id="menu-item-605" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-605"><a href="https://hpb-s.com/services/greenhouse_gases/">Верификация расчётов парниковых газов и заключения по углеродному следу</a></li>
+		<li id="menu-item-604" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-604"><a href="https://hpb-s.com/services/carbon_neutrality/">Концепция углеродной нейтральности</a></li>
+		<li id="menu-item-603" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-603"><a href="https://hpb-s.com/services/carbon-footprint/">Концепции оптимизации и компенсации углеродного следа</a></li>
+		<li id="menu-item-602" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-602"><a href="https://hpb-s.com/services/climate_strategy/">Разработка климатической стратегии компании</a></li>
+		<li id="menu-item-576" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-576"><a href="https://hpb-s.com/services/lca-exp/">EPD декларации и LCA анализ жизненного цикла продукции</a></li>
+	</ul>
+</li>
+	<li id="menu-item-607" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-607"><a href="https://hpb-s.com/services/pg_course/#">Инжиниринг зданий и территорий</a>
+	<ul class="sub-menu">
+		<li id="menu-item-611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-611"><a href="https://hpb-s.com/services/energy_supply/">Разработка стратегии комплексного энергоснабжения и энергоэффективности</a></li>
+		<li id="menu-item-608" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-608"><a href="https://hpb-s.com/services/alternative_energy_sources/">Концепция использования альтернативных и возобновляемых источников энергии</a></li>
+		<li id="menu-item-610" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-610"><a href="https://hpb-s.com/services/feasibility_study/">Разработка инженерных решений и расчет затрат на строительство</a></li>
+		<li id="menu-item-609" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-609"><a href="https://hpb-s.com/services/mathematical_modeling/">Математическое моделирование – энергопотребление зданий</a></li>
+	</ul>
+</li>
+	<li id="menu-item-612" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-612"><a href="https://hpb-s.com/services/pg_course/#">Академия HPBS</a>
+	<ul class="sub-menu">
+		<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://hpb-s.com/services/leed-training/">Тренинг по сертификации LEED</a></li>
+		<li id="menu-item-613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-613"><a href="https://hpb-s.com/services/breeam_training/">Тренинг по сертификации BREEAM</a></li>
+		<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="https://hpb-s.com/services/well_building_standard/">Тренинг по сертификации WELL</a></li>
+		<li id="menu-item-619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-619"><a href="https://hpb-s.com/services/energy_efficiency/">Тренинг по энергоэффективности и энергомоделированию зданий</a></li>
+		<li id="menu-item-618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-618"><a href="https://hpb-s.com/services/engineering_concepts/">Тренинг по инженерным концепциям</a></li>
+		<li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-616"><a href="https://hpb-s.com/services/pg_course/" aria-current="page">Курс по расчету, оптимизации и компенсации парниковых газов</a></li>
+		<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="https://hpb-s.com/services/ecotectonics-2018/">Курс лекций по зеленой экономике и устойчивому развитию</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-152" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-152"><a href="https://hpb-s.com/o-kompanii-hpbs/">О нас</a></li>
+<li id="menu-item-52" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52"><a href="https://hpb-s.com/projects/">Проекты</a></li>
+<li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="https://hpb-s.com/news/">Новости</a></li>
+<li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="https://hpb-s.com/kontakty/">Контакты</a></li>
+</ul></div>					<a href="https://hpb-s.com/services/pg_course/#" class="nav-btn btn">
+						Подписаться на нас
+					</a>
+					<form class="search-form nav-label" role="search" method="get" id="searchform" action="https://hpb-s.com/">
+<img src="./HPBS_files/search.png" alt="" class="nav-label__img">
+    <input class="search-form__input nav-label__input" type="text" value="" name="s" id="s" placeholder="Поиск..." autocomplete="off">
+    
+    <ul class="ajax-search"></ul>
+</form>
+					<div class="nav-englis">
+												<li class="lang-item lang-item-21 lang-item-ru current-lang lang-item-first"><a lang="ru-RU" hreflang="ru-RU" href="https://hpb-s.com/services/pg_course/">ru</a></li>
+	<li class="lang-item lang-item-27 lang-item-en no-translation"><a lang="en-US" hreflang="en-US" href="https://hpb-s.com/en/home/">en</a></li>
+					</div>
+					
+					
+					<div class="nav-menu">
+						
+						<svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<line y1="0.5" x2="26.0161" y2="0.5" stroke="#464646"></line>
+						<line y1="9" x2="26.0161" y2="9" stroke="#464646"></line>
+						<line y1="17.5" x2="26.0161" y2="17.5" stroke="#464646"></line>
+						</svg>
+
+					</div>
+					<ul id="menu-glavnoe-menyu-1" class="nav-menu-mobile mob-true"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-51"><a href="https://hpb-s.com/services">Услуги</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-336"><a href="https://hpb-s.com/services/pg_course/#">Международная сертификация зданий и территорий</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-573"><a href="https://hpb-s.com/services/leed_about/">Сертификация объектов недвижимости по стандартам LEED</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-540"><a href="https://hpb-s.com/services/breeam/">Сертификация объектов недвижимости по стандартам BREEAM</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-574"><a href="https://hpb-s.com/services/well-standard/">Сертификация объектов недвижимости по стандартам WELL</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-575"><a href="https://hpb-s.com/services/iriis/">Сертификация и верификация инфраструктурных объектов IRIIS (ВЭБ)</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-337"><a href="https://hpb-s.com/services/pg_course/#">Управление климатическими рисками и парниковыми газами</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-606"><a href="https://hpb-s.com/services/co2-aviation/">Расчет углеродного следа по Охватам 1, 2 и 3 (Scope 1, 2, 3)</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-605"><a href="https://hpb-s.com/services/greenhouse_gases/">Верификация расчётов парниковых газов и заключения по углеродному следу</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-604"><a href="https://hpb-s.com/services/carbon_neutrality/">Концепция углеродной нейтральности</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-603"><a href="https://hpb-s.com/services/carbon-footprint/">Концепции оптимизации и компенсации углеродного следа</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-602"><a href="https://hpb-s.com/services/climate_strategy/">Разработка климатической стратегии компании</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-576"><a href="https://hpb-s.com/services/lca-exp/">EPD декларации и LCA анализ жизненного цикла продукции</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-607"><a href="https://hpb-s.com/services/pg_course/#">Инжиниринг зданий и территорий</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-611"><a href="https://hpb-s.com/services/energy_supply/">Разработка стратегии комплексного энергоснабжения и энергоэффективности</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-608"><a href="https://hpb-s.com/services/alternative_energy_sources/">Концепция использования альтернативных и возобновляемых источников энергии</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-610"><a href="https://hpb-s.com/services/feasibility_study/">Разработка инженерных решений и расчет затрат на строительство</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-609"><a href="https://hpb-s.com/services/mathematical_modeling/">Математическое моделирование – энергопотребление зданий</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-612"><a href="https://hpb-s.com/services/pg_course/#">Академия HPBS</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://hpb-s.com/services/leed-training/">Тренинг по сертификации LEED</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-613"><a href="https://hpb-s.com/services/breeam_training/">Тренинг по сертификации BREEAM</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="https://hpb-s.com/services/well_building_standard/">Тренинг по сертификации WELL</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-619"><a href="https://hpb-s.com/services/energy_efficiency/">Тренинг по энергоэффективности и энергомоделированию зданий</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-618"><a href="https://hpb-s.com/services/engineering_concepts/">Тренинг по инженерным концепциям</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-616"><a href="https://hpb-s.com/services/pg_course/" aria-current="page">Курс по расчету, оптимизации и компенсации парниковых газов</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="https://hpb-s.com/services/ecotectonics-2018/">Курс лекций по зеленой экономике и устойчивому развитию</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-152"><a href="https://hpb-s.com/o-kompanii-hpbs/">О нас</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52"><a href="https://hpb-s.com/projects/">Проекты</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="https://hpb-s.com/news/">Новости</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="https://hpb-s.com/kontakty/">Контакты</a></li>
+</ul>				</div>
+			</div>
+		</nav>	</header>
+	<section class="section-name section-name-projects">
+		<img src="./HPBS_files/contacts.png" alt="" class="section-name__bg p-true">
+		<img src="./HPBS_files/contacts-mobile.png.png" alt="" class="section-name__bg mb-true">
+		<h1 class="section-name__title">
+			Курс по парниковым газам		</h1>
+	</section>
+		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					</h1><h3 style="text-align: center;">Образовательный курс | Зеленая экономика, углеродное регулирование&nbsp;| Онлайн-программа</h3>
+	    				
+	    				<div class="projects-single__text">
+	    						    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p>Расчет, оптимизация и компенсация выбросов парниковых газов по лучшим международным практикам</p>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<p>Первый русскоязычный образовательный курс для низкоуглеродного развития вашего бизнеса на международном рынке</p>
+<ul>
+<li>7 модулей</li>
+<li>4 часа лекций</li>
+<li>Домашние задания</li>
+<li>Русский язык</li>
+<li>Онлайн-формат</li>
+<li>Сертификат о прохождении курса</li>
+</ul>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p>О программе</p>
+<div id="gtx-trans" style="position: absolute; left: -42px; top: -10px;">
+<div class="gtx-trans-icon"></div>
+</div>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<p><strong>Программа поможет понять, какие знания и инструменты нужны компаниям при расчете, оптимизации и компенсации выбросов парниковых газов для устойчивого развития вашего бизнеса на международном рынке.</strong></p>
+<p>&nbsp;</p>
+<p>Программа разработана экспертами Компании HPBS и является частью экосистемы образовательных тренингов в области устойчивого развития, зеленой экономики и снижения экологического следа.</p>
+<p>В течение всего курса участников ждут обучающие лекции, практические тесты и домашние задания.</p>
+<p>Зачем бизнесу заниматься выбросами ПГ? Как считать выбросы ПГ? Как платить налог на углеродный след? Какая существует отчетность и сертификация? Какие методы компенсации и оптимизации углеродного следа применяются?</p>
+<p>В ходе обучения вы составите целостную картину управления низкоуглеродным развитием компании и проясните ключевые вопросы, связанные с особенностями нормативного регулирования, расчетом выбросов парниковых газов, трансграничным налогом, углеродной отчетностью, оптимизацией и компенсацией парникового следа на международном рынке.</p>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p>Программа будет полезна</p>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<p>Участникам нового рынка, связанного с низкоуглеродной экономикой, которая открывает в себе большое количество возможностей и вопросов.</p>
+<ul>
+<li>Топ-менеджерам и владельцам малого и среднего бизнеса, планирующим масштабирование производства и выход на международный рынок.</li>
+<li>Директорам по устойчивому развитию бизнеса.</li>
+<li>Специалистам по ESG, экологии и устойчивому развитию.</li>
+<li>Специалистам занимающимся расчетом углеродного следа, LCA и EPD.</li>
+</ul>
+<p>Уровень подготовки: специальных навыков не требуется.</p>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p>Программа курса</p>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<p>Программа опирается на международные документы и практики в области климата и углеродного регулирования.</p>
+<ul>
+<li><strong>Устойчивое развитие и климат</strong>
+<ul>
+<li>Теория и проблема изменения климата</li>
+<li>Климатические риски</li>
+<li>Парижское климатическое соглашение</li>
+<li>Концепция Устойчивого Развития. Потребность общества в ЦУР</li>
+<li>Парниковые газы. Обзор основных видов и источников, IPCC протокол</li>
+<li>Введение в углеродный след. Разница между экологическим и углеродным следом</li>
+</ul>
+</li>
+<li><strong>Стандарты оценки выбросов парниковых газов</strong>
+<ul>
+<li>Обзор основных нормативных документов, регулирующих выбросы парниковых газов в России</li>
+<li>Стандарты, используемые для оценки ПГ. ISO 14064</li>
+<li>Стандарты, используемые для оценки ПГ. GHG Protocol</li>
+<li>Введение в понятие состава оценки ПГ – Scope 1,2,3</li>
+</ul>
+</li>
+<li><strong>Расчет по Scope 1</strong>
+<ul>
+<li>Идентификация и определение выбросов парниковых газов по Scope 1</li>
+<li>Методы сбора данных</li>
+<li>Коэффициенты пересчета</li>
+<li>Пример расчета выбросов парниковых газов</li>
+</ul>
+</li>
+<li><strong>Расчет по Scope 2</strong>
+<ul>
+<li>Идентификация и определение выбросов парниковых газов по Scope 2 (источники)</li>
+<li>Методы сбора данных (типы потребляемой энергии)</li>
+<li>Расчет коэффициентов эмиссии парниковых газов по Scope 2, исходя из состава потребляемой энергии</li>
+<li>Пример расчета выбросов парниковых газов</li>
+</ul>
+</li>
+<li><strong>Расчет по Scope 3</strong>
+<ul>
+<li>Идентификация и классификация выбросов парниковых газов в рамках Scope 3</li>
+<li>Методы и инструменты сбора данных</li>
+<li>Расчет и распределение выбросов парниковых газов по категориям</li>
+<li>Пример расчета выбросов</li>
+</ul>
+</li>
+<li><strong>Отчетность по выбросам парниковых газов</strong>
+<ul>
+<li>Стандарты и органы: CDP, TCFD, GRI и др</li>
+<li>Ключевые концепции корпоративного учета парниковых газов. Оформление выбросов парниковых газов в отчетности</li>
+<li>Политики по управлению климатическими рисками</li>
+<li>Требования к верификации</li>
+<li>Представление результатов отчетности заинтересованным сторонам</li>
+<li>Методы оптимизации углеродного следа</li>
+<li>Методы компенсации углеродного следа. Углеродные сертификаты CORCs, I-REC. Проекты компенсации углеродного следа от Gold Standard и Verra.</li>
+</ul>
+</li>
+<li><strong>Управление цепочкой поставок </strong>
+<ul>
+<li>Углеродное регулирование экономики: углеродный налог, квоты на выбросы парниковых газов.</li>
+<li>Введение в экологическую декларацию продукции. Экологические декларации продукции – EPD (декларация парникового и экологического следа). Требования ЕС и OECD для импорта и экспорта товаров и сырья.</li>
+<li>Оценка жизненного цикла продукции LCA. Инструменты работы с анализом жизненного цикла (процедуры, программы, индикаторы, базы данных). Методы оптимизации жизненного цикла в производственной и логистической цепочке</li>
+</ul>
+</li>
+</ul>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p>Вас ждут</p>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<ul>
+<li><strong>Эксперты-практики, работающие с низкоуглеродным рынком</strong></li>
+<li><strong>Лекции в записи для обучения в удобное время</strong></li>
+<li><strong>Практические задания</strong></li>
+<li><strong>Онлайн-сессия с экспертами в конце обучения</strong></li>
+<li><strong>Сертификат об успешном прохождении курса</strong></li>
+</ul>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p>Результаты обучения</p>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<p><strong>Знания</strong></p>
+<p>В сфере устойчивого развития и климата, сможете оценивать жизненный цикл LCA и составлять экологическую декларацию продукции EPD.</p>
+<p><strong>Дорожная карта</strong></p>
+<p>Готовая дорожная карта по низкоуглеродному регулированию деятельности компании.</p>
+<p><strong>Понимание рынка</strong></p>
+<p>Комплексное понимание зеленого рынка: предпосылки, нормативная база, особенности.</p>
+<p><strong>Инструменты</strong></p>
+<p>Инструменты для анализа и улучшения экологической деятельности компании в области парникового следа (расчет, оптимизация, компенсация).</p>
+<p>&nbsp;</p>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p><strong>Стоимость участия:</strong></p>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<p>— для физических лиц 46 000 рублей</p>
+<p>— для юридических лиц 55 200 рублей</p>
+<p>Насыщенный и востребованный курс «Расчет, оптимизация и компенсация выбросов парниковых газов можно пройти на современной образовательной онлайн-платформе Stepik за 10 часов. В конце обучения будет экзамен, после успешного прохождения которого Вы получите сертификат.</p>
+<p>&nbsp;</p>
+<p><a href="https://stepik.org/z/100089">Поступить на курс</a></p>
+<p>&nbsp;</p>
+<p>По вопросам участия Вы можете обратиться по следующим контактам:</p>
+<ul>
+<li><b>T</b>: +7(910) 081-14-69 (Анна)</li>
+<li><b>E</b>: anna.zavaleeva@hpb-s.com</li>
+</ul>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		    	<section class="projects-single projects-single__services">
+	    		<img class="projects-single-bg" src="./HPBS_files/bg-logo.png" alt="">
+	    		<div class="container">
+	    			
+	    			<div class="projects-single-wrapper">
+	    				<h1 class="projects-single__title">
+	    					<p><strong>Тематические материалы:</strong></p>
+	    				</h1>
+	    				<div class="projects-single__text">
+	    					<p><a href="https://drive.google.com/file/d/1K2CpD17_2-onp-ddv7UY5O9rneaAXdCw/view?usp=sharing" target="_blank" rel="noopener">Заседание Совета Федерации Парниковые газы от 8.07.21</a></p>
+<p><a href="https://www.yumpu.com/en/document/read/65623694/8th-edition-inme" target="_blank" rel="noopener">Статья СО2 Нидерланды</a></p>
+<p><a href="https://hpb-s.com/services/pg_course/https://youtu.be/4ew36zy2zEk" target="_blank" rel="noopener">Платформа PERIX</a></p>
+	    				</div>
+	    			</div>
+	    			<img src="https://hpb-s.com/services/pg_course/" alt="" class="projects-single-img">
+	    		</div>
+	    	</section>
+	    		
+	<footer class="footer">
+	<div class="container">
+		<div class="footer-wrap">
+			<div class="footer-map">
+				<img src="./HPBS_files/map.png" alt="">
+				<p class="footer-map__text">
+					Россия, 115093, г. Москва, Дубиниская улица, д. 80. Офис №513				</p>
+			</div>
+			<div class="footer-contacts">
+				<a href="mail-to:info@hpb-s.com" class="footer-contacts__item footer-contacts__item_top">
+					<img src="./HPBS_files/mail.png" alt="">
+					info@hpb-s.com				</a>
+				<a href="tel:+7 (495)231-09-04" class="footer-contacts__item">
+					<img src="./HPBS_files/phone.png" alt="">
+					+7 (495)231-09-04				</a>
+			</div>
+			<div class="footer-soc">
+				<a href="https://www.instagram.com/_hpbs_/" class="footer-soc__item">
+					<img src="./HPBS_files/instagram (4) 1.png" alt="">
+				</a>
+				<a href="https://www.linkedin.com/company/hpbs/" class="footer-soc__item">
+					<img src="./HPBS_files/Frame 2.png" alt="">
+				</a>
+				<a href="https://www.youtube.com/channel/UC_DX3niHZo0ed9lcUJeihAQ/featured" class="footer-soc__item">
+					<img src="./HPBS_files/youtube (2) 1.png" alt="">
+				</a>
+				<a href="https://www.facebook.com/hpbscom/" class="footer-soc__item">
+					<img src="./HPBS_files/facebook (3) 1.png" alt="">
+				</a>
+			</div>
+			
+			<div class="footer-politic">
+				<p class="footer-politic__text">
+					© hpbs 2021 All Rights Reserved
+					<br>
+					<a download="" href="https://hpb-s.com/services/pg_course/">Политика конфиденциальности</a>
+				</p>
+				<span class="footer-politic_link">
+					Разработка сайта
+					<a target="_blank" href="https://anivia.ru/"><img src="./HPBS_files/nvid.png" alt=""></a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Закрыть"></button>
+                <button class="pswp__button pswp__button--share" title="Поделиться"></button>
+                <button class="pswp__button pswp__button--fs" title="Вкл/выкл на весь экран"></button>
+                <button class="pswp__button pswp__button--zoom" title="Увеличить / уменьшить"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip">
+                </div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Назад (стрелка влево)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Далее (стрелка вправо)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div><script type="text/javascript" src="./HPBS_files/hoverintent-js.min.js" id="hoverintent-js-js"></script>
+<script type="text/javascript" src="./HPBS_files/admin-bar.min.js" id="admin-bar-js"></script>
+<script type="text/javascript" id="lbwps-js-extra">
+/* <![CDATA[ */
+var lbwpsOptions = {"label_facebook":"\u041f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f \u0432 Facebook","label_twitter":"\u041f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f \u0432 Twitter","label_pinterest":"\u041f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f \u0432 Pinterest","label_download":"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u0435","label_copyurl":"\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c URL","share_facebook":"1","share_twitter":"1","share_pinterest":"1","share_download":"1","share_direct":"0","share_copyurl":"0","share_custom_label":"","share_custom_link":"","wheelmode":"close","close_on_drag":"1","history":"1","show_counter":"1","show_fullscreen":"1","show_zoom":"1","show_caption":"1","loop":"1","pinchtoclose":"1","taptotoggle":"1","spacing":"12","close_on_click":"1","fulldesktop":"0","use_alt":"0","desktop_slider":"1","idletime":"4000","hide_scrollbars":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./HPBS_files/scripts.js" id="lbwps-js"></script>
+<script type="text/javascript" src="./HPBS_files/wp-embed.min.js" id="wp-embed-js"></script>
+	<script type="text/javascript">
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+				request = true;
+	
+			b[c] = b[c].replace( rcs, ' ' );
+			// The customizer requires postMessage and CORS (if the site is cross domain).
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	</script>
+			<div id="wpadminbar" class="nojq mobile">
+							<a class="screen-reader-shortcut" href="https://hpb-s.com/services/pg_course/#wp-toolbar" tabindex="1">Перейти к верхней панели</a>
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Верхняя панель">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu"><li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://hpb-s.com/wp-admin/about.php"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">О WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu"><li id="wp-admin-bar-about"><a class="ab-item" href="https://hpb-s.com/wp-admin/about.php">О WordPress</a></li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu"><li id="wp-admin-bar-wporg"><a class="ab-item" href="https://ru.wordpress.org/">WordPress.org</a></li><li id="wp-admin-bar-documentation"><a class="ab-item" href="https://ru.wordpress.org/support/">Документация</a></li><li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://ru.wordpress.org/support/forums/">Поддержка</a></li><li id="wp-admin-bar-feedback"><a class="ab-item" href="https://ru.wordpress.org/support/forum/requests-and-feedback/">Обратная связь</a></li></ul></div></li><li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://hpb-s.com/wp-admin/">HPBS</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu"><li id="wp-admin-bar-dashboard"><a class="ab-item" href="https://hpb-s.com/wp-admin/">Консоль</a></li></ul><ul id="wp-admin-bar-appearance" class="ab-submenu"><li id="wp-admin-bar-themes"><a class="ab-item" href="https://hpb-s.com/wp-admin/themes.php">Темы</a></li><li id="wp-admin-bar-menus"><a class="ab-item" href="https://hpb-s.com/wp-admin/nav-menus.php">Меню</a></li></ul></div></li><li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" href="https://hpb-s.com/wp-admin/customize.php?url=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F">Настроить</a></li><li id="wp-admin-bar-updates"><a class="ab-item" href="https://hpb-s.com/wp-admin/update-core.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">3</span><span class="screen-reader-text updates-available-text">Доступно 3 обновления</span></a></li><li id="wp-admin-bar-comments"><a class="ab-item" href="https://hpb-s.com/wp-admin/edit-comments.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text comments-in-moderation-text">0 комментариев ждут одобрения</span></a></li><li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://hpb-s.com/wp-admin/post-new.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">Добавить</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu"><li id="wp-admin-bar-new-post"><a class="ab-item" href="https://hpb-s.com/wp-admin/post-new.php">Запись</a></li><li id="wp-admin-bar-new-media"><a class="ab-item" href="https://hpb-s.com/wp-admin/media-new.php">Медиафайл</a></li><li id="wp-admin-bar-new-page"><a class="ab-item" href="https://hpb-s.com/wp-admin/post-new.php?post_type=page">Страницу</a></li><li id="wp-admin-bar-new-services"><a class="ab-item" href="https://hpb-s.com/wp-admin/post-new.php?post_type=services">Услуга</a></li><li id="wp-admin-bar-new-projects"><a class="ab-item" href="https://hpb-s.com/wp-admin/post-new.php?post_type=projects">Проекты</a></li><li id="wp-admin-bar-new-team"><a class="ab-item" href="https://hpb-s.com/wp-admin/post-new.php?post_type=team">Работник</a></li><li id="wp-admin-bar-new-news"><a class="ab-item" href="https://hpb-s.com/wp-admin/post-new.php?post_type=news">Новости</a></li><li id="wp-admin-bar-new-user"><a class="ab-item" href="https://hpb-s.com/wp-admin/user-new.php">Пользователя</a></li></ul></div></li><li id="wp-admin-bar-edit"><a class="ab-item" href="https://hpb-s.com/wp-admin/post.php?post=334&amp;action=edit">Редактировать Услугу</a></li><li id="wp-admin-bar-wpseo-menu" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://hpb-s.com/wp-admin/admin.php?page=wpseo_dashboard"><div id="yoast-ab-icon" class="ab-item yoast-logo svg"><span class="screen-reader-text">SEO</span></div><div class="wpseo-score-icon adminbar-seo-score na"><span class="adminbar-seo-score-text screen-reader-text">Оценка SEO: Недоступно</span></div></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-menu-default" class="ab-submenu"><li id="wp-admin-bar-wpseo-configuration-wizard"><a class="ab-item" href="https://hpb-s.com/wp-admin/admin.php?page=wpseo_configurator">Мастер настройки</a></li><li id="wp-admin-bar-wpseo-kwresearch" class="menupop"><div class="ab-item ab-empty-item" tabindex="0" aria-haspopup="true"><span class="wp-admin-bar-arrow" aria-hidden="true"></span>Исследование ключевых слов</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-kwresearch-default" class="ab-submenu"><li id="wp-admin-bar-wpseo-kwresearchtraining"><a class="ab-item" href="https://yoa.st/wp-admin-bar?php_version=5.6&amp;platform=wordpress&amp;platform_version=5.8.1&amp;software=free&amp;software_version=17.1&amp;days_active=6-30&amp;user_language=ru_RU" target="_blank">Тренинг по ключевым словам</a></li><li id="wp-admin-bar-wpseo-adwordsexternal"><a class="ab-item" href="https://yoa.st/keywordplanner" target="_blank">Google Ads</a></li><li id="wp-admin-bar-wpseo-googleinsights"><a class="ab-item" href="https://yoa.st/google-trends" target="_blank">Google тренды</a></li></ul></div></li><li id="wp-admin-bar-wpseo-analysis" class="menupop"><div class="ab-item ab-empty-item" tabindex="0" aria-haspopup="true"><span class="wp-admin-bar-arrow" aria-hidden="true"></span>Проанализировать эту страницу</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-analysis-default" class="ab-submenu"><li id="wp-admin-bar-wpseo-inlinks"><a class="ab-item" href="https://search.google.com/search-console/links/drilldown?resource_id=https%3A%2F%2Fhpb-s.com&amp;type=EXTERNAL&amp;target=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F&amp;domain=" target="_blank">Проверить ссылки на этот URL</a></li><li id="wp-admin-bar-wpseo-kwdensity"><a class="ab-item" href="http://www.zippy.co.uk/keyworddensity/index.php?url=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F&amp;keyword=" target="_blank">Проверить плотность ключевых слов</a></li><li id="wp-admin-bar-wpseo-cache"><a class="ab-item" href="https://webcache.googleusercontent.com/search?strip=1&amp;q=cache:https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Проверить кэш Google </a></li><li id="wp-admin-bar-wpseo-structureddata"><a class="ab-item" href="https://search.google.com/test/rich-results?url=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Тест Google Rich Results</a></li><li id="wp-admin-bar-wpseo-facebookdebug"><a class="ab-item" href="https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Отладчик Facebook</a></li><li id="wp-admin-bar-wpseo-pinterestvalidator"><a class="ab-item" href="https://developers.pinterest.com/tools/url-debugger/?link=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Валидатор Pinterest Rich Pins</a></li><li id="wp-admin-bar-wpseo-htmlvalidation"><a class="ab-item" href="https://validator.w3.org/check?uri=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Валидатор HTML</a></li><li id="wp-admin-bar-wpseo-cssvalidation"><a class="ab-item" href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Валидатор CSS</a></li><li id="wp-admin-bar-wpseo-pagespeed"><a class="ab-item" href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Тест скорости загрузки страницы от Google</a></li><li id="wp-admin-bar-wpseo-google-mobile-friendly"><a class="ab-item" href="https://www.google.com/webmasters/tools/mobile-friendly/?url=https%3A%2F%2Fhpb-s.com%2Fservices%2Fpg_course%2F" target="_blank">Тестирование использования на мобильных устройствах</a></li></ul></div></li><li id="wp-admin-bar-wpseo-settings" class="menupop"><div class="ab-item ab-empty-item" tabindex="0" aria-haspopup="true"><span class="wp-admin-bar-arrow" aria-hidden="true"></span>Настройки SEO</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-settings-default" class="ab-submenu"><li id="wp-admin-bar-wpseo-general"><a class="ab-item" href="https://hpb-s.com/wp-admin/admin.php?page=wpseo_dashboard">Общие</a></li><li id="wp-admin-bar-wpseo-titles"><a class="ab-item" href="https://hpb-s.com/wp-admin/admin.php?page=wpseo_titles">Отображение в поисковой выдаче</a></li><li id="wp-admin-bar-wpseo-social"><a class="ab-item" href="https://hpb-s.com/wp-admin/admin.php?page=wpseo_social">Социальные сети</a></li><li id="wp-admin-bar-wpseo-tools"><a class="ab-item" href="https://hpb-s.com/wp-admin/admin.php?page=wpseo_tools">Инструменты</a></li><li id="wp-admin-bar-wpseo-licenses"><a class="ab-item" href="https://hpb-s.com/wp-admin/admin.php?page=wpseo_licenses">Премиум</a></li></ul></div></li></ul></div></li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu"><li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="https://hpb-s.com/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Поиск</label><input type="submit" class="adminbar-button" value="Поиск"></form></div></li><li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="https://hpb-s.com/wp-admin/profile.php">Привет, <span class="display-name">north_admin</span><img alt="" src="./HPBS_files/f35441e148b2645a0022d99857fe4367.png" srcset="https://secure.gravatar.com/avatar/f35441e148b2645a0022d99857fe4367?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26" loading="lazy"></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu"><li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="https://hpb-s.com/wp-admin/profile.php"><img alt="" src="./HPBS_files/f35441e148b2645a0022d99857fe4367(1).png" srcset="https://secure.gravatar.com/avatar/f35441e148b2645a0022d99857fe4367?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64" loading="lazy"><span class="display-name">north_admin</span></a></li><li id="wp-admin-bar-edit-profile"><a class="ab-item" href="https://hpb-s.com/wp-admin/profile.php">Изменить профиль</a></li><li id="wp-admin-bar-logout"><a class="ab-item" href="https://hpb-s.com/wp-login.php?action=logout&amp;_wpnonce=e7305e3016">Выйти</a></li></ul></div></li></ul>			</div>
+						<a class="screen-reader-shortcut" href="https://hpb-s.com/wp-login.php?action=logout&amp;_wpnonce=e7305e3016">Выйти</a>
+					</div>
+
+		    <script src="./HPBS_files/wU79CRs5n6" async=""></script>
+</footer>	<!-- Подключение скриптов -->
+		<script src="./HPBS_files/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script>
+			$('.nav-menu').on('click', function() {
+				$('.nav-menu-mobile').toggleClass('nav-menu-mobile__active');
+				$('.nav-menu').toggleClass('nav-menu-active');
+			})
+			$('.nav-label__input').on('focus', function() {
+				$('.nav-label').addClass('nav-label-active');
+			})
+			$('.nav-label__input').on('focusout', function() {
+				$('.nav-label').removeClass('nav-label-active');
+			})
+		</script>
+	<script src="./HPBS_files/app.js" defer=""></script>
+	
+
+
+<!----><div id="jivo-iframe-container" style="opacity: 0; visibility: hidden; width: 0px; height: 0px; overflow: hidden;"><iframe src="javascript:void(0)" allow="autoplay" title="Jivochat" name="jivo_container" id="jivo_container" frameborder="no" src="./HPBS_files/saved_resource.html"></iframe></div><jdiv><jdiv class="globalClass_5c43"><jdiv class="wrap_0b89 _orientationRight_10c2 __jivoMobileButton" style=""><jdiv class="popup_d12f __show_3dea"><jdiv class="popupBlock_90d9 __show_3dea __short_a356"><jdiv class="popupAnim_f9ea __show_3dea"><jdiv class="avatar_08ef"><jdiv class="avatarImg_ef7b" style="background-image: url(&quot;https://files.jivosite.com/avatars/718660/5f981bafb414f.jpg&quot;);"></jdiv><jdiv class="agentName_36a9">Анна</jdiv></jdiv><jdiv class="closeBlock_c311"><jdiv class="closePopupIcon_1056" style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%0A%20%20%3Cg%20fill%3D%22%23959BA0%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate(7%207)%22%3E%0A%20%20%20%20%3Crect%20width%3D%221.5%22%20height%3D%2212.941%22%20x%3D%225.06%22%20y%3D%22-.876%22%20rx%3D%22.75%22%20transform%3D%22rotate(45%205.81%205.595)%22%2F%3E%0A%20%20%20%20%3Crect%20width%3D%221.5%22%20height%3D%2212.941%22%20x%3D%225.06%22%20y%3D%22-.876%22%20rx%3D%22.75%22%20transform%3D%22scale(-1%201)%20rotate(45%200%20-8.433)%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E&quot;);"></jdiv></jdiv><jdiv class="text_eb25"><jdiv class="textBox_d885">Здравствуйте! Я могу вам чем-то помочь?</jdiv></jdiv></jdiv></jdiv></jdiv><jdiv class="button_92db" style="background: linear-gradient(95deg, rgb(47, 50, 74) 20%, rgb(66, 72, 103) 80%);"><jdiv class="messagesLabel_f36f"><jdiv class="badge_4a3b">1</jdiv></jdiv><jdiv class="iconWrap_eb5e _showLogo_9285"><jdiv class="jivoIcon_4c7a icons_37bc" style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20width%3D%2210%22%20height%3D%2235%22%20viewBox%3D%220%200%209%2035%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M1.31%2034.966H.975c-.295%200-.53-.09-.71-.27C.09%2034.516%200%2034.3%200%2034.05v-2.33c0-.25.097-.465.288-.645.193-.18.42-.27.687-.27H1.3c1.776%200%203.223-1.37%203.238-3.06v-8.94H.975c-.236%200-.458-.09-.665-.27-.206-.18-.31-.395-.31-.645v-2.33c0-.223.104-.43.31-.625.207-.194.43-.292.665-.292h7.019c.266%200%20.494.09.687.27.192.182.29.396.29.646V27.77c0%20.032-.008.058-.01.09-.08%203.937-3.477%207.098-7.65%207.104zM.318%200C-.25%2011.117%208.62%2012.702%208.62%2012.702%208.17.522.318%200%20.318%200z%22%2F%3E%3C%2Fsvg%3E%0A&quot;);"></jdiv><jdiv class="logoIconCloud_8aab icons_37bc" style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2231%22%20viewBox%3D%220%200%2030%2031%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M2.967%2022.226l-.025.008s7.698%2013.9%2026.975%205.546c0%200-1.495-1.752-4.384-3.52a14.067%2014.067%200%200%200%202.588-14.047c-2.655-7.297-10.7-11.07-17.964-8.425C2.89%204.433-.847%2012.492%201.81%2019.79c.313.863.703%201.677%201.157%202.436z%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E%0A&quot;);"></jdiv></jdiv></jdiv></jdiv><jdiv class="wrap_73e5" style="display: none;"><jdiv class="zoom_a2fb"></jdiv><jdiv class="substrate_b96e"></jdiv><jdiv class="iconContainer_61b3" style="width: 100%; height: 355px; display: block;"><jdiv class="viewWrap_fb14" style="width: 768px; height: 355px; transform: translate(0px, 0px);"><jdiv class="box_4952" style="zoom: 1;"><jdiv><jdiv iconname="hand" class="handIcon_7b96"><svg width="160" height="173" viewBox="0 0 160 173" xmlns="http://www.w3.org/2000/svg"><title>hand</title><path d="M56.31 169.5S8.685 109 5.968 106.25c-2.717-2.75-5.84-12.663 0-20.05C11.807 78.816 21.295 82.95 24 85c2.705 2.05 13.06 10.5 13.06 10.5s7.646 6.35 14.5 2.093c6.857-4.256 6.42-11.392 6.42-11.392s1.93-16.115-1.67-35.2C52.714 31.915 49 25.25 46.75 20c-2.25-5.25-1.124-11.59 5.938-16.045C59.75-.5 67 6.5 68.5 9.25s6.396 9.49 12.12 27.253c5.722 17.763 7.69 41.372 7.69 41.372l-2-23.25c5.576 0 13.464-2.994 24.017 9.168 4.736 5.457 6.86 24.332 6.86 24.332s-1.874-15.188-5.25-21.75c4.5-1.25 12.583-4.006 21.376 4.875 6.31 6.375 5.375 23.25 5.375 23.25s1.25-13.063-4.25-21.938c13.68-1.527 19.937 11.313 21.937 19.563 2 8.25-.875 26.75-.875 26.75l-14.19 51.875" stroke="#A3AFB8" fill-rule="nonzero" stroke-width="4" fill="#FFF" stroke-linecap="round" stroke-linejoin="round"></path></svg></jdiv><jdiv iconname="arrow" class="arrow1_d096"><svg width="59" height="71" viewBox="0 0 59 71" xmlns="http://www.w3.org/2000/svg"><title>Arrow1</title><g transform="rotate(163 27.277 33.133)" fill="#00A355" fill-rule="evenodd"><rect y="12" width="8" height="48" rx="4"></rect><rect y="52" width="48" height="8" rx="4"></rect><rect transform="rotate(-45 30.523 29.475)" x="-6.477" y="25.475" width="74" height="8" rx="4"></rect></g></svg></jdiv><jdiv iconname="arrow2" class="arrow2_8fca"><svg width="59" height="71" viewBox="0 0 59 71" xmlns="http://www.w3.org/2000/svg"><title>Arrow2</title><g transform="rotate(-17 45.338 20.625)" fill="#00A355" fill-rule="evenodd"><rect y="12" width="8" height="48" rx="4"></rect><rect y="52" width="48" height="8" rx="4"></rect><rect transform="rotate(-45 30.523 29.475)" x="-6.477" y="25.475" width="74" height="8" rx="4"></rect></g></svg></jdiv></jdiv></jdiv></jdiv></jdiv></jdiv><jdiv class="pseudoHeight_2397"></jdiv></jdiv></jdiv></body></html>

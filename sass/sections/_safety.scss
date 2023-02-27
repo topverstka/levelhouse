@@ -1,0 +1,205 @@
+@media (max-width: 992px){
+    .safety{
+        //background-color: #f2efeb;
+        background-color: #f2f1ee;
+        padding-top: 22.1875VW;
+        margin-top: -6.25VW;
+    }
+    .safety__bg{
+        display: none;
+    }
+
+    .safety-cat{
+        border-radius: 6.25VW;
+        background-color: #fff;
+        padding-top: 11.25VW;
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 13.750000000000002VW;
+    }
+    .safety-cat__form{
+        width: 77.5VW;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .safety-cat__title{
+        font-size: 8.75VW;
+        text-align: left;
+        margin-bottom: 6.25VW;
+    }
+    .safety-cat__descr{
+        font-size: 3.75VW;
+        text-align: left;
+        color: #737474;
+        margin-bottom: 9.375VW;
+    }
+    .btn--safety-cat{
+        width: 100%;
+    }
+    
+    .safety-cat__img{
+        display: none;
+    }
+    .safety-cat__img--mob{
+        display: block;
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+
+
+
+    .safety__title{
+        font-size: 6.25VW;
+        margin-bottom: 4.375VW;
+    }
+
+    .safety__title-descr{
+        font-size: 3.125VW;
+        text-align: center;
+        margin-bottom: 10.9375VW;
+    }
+
+    .safety__item{
+        text-align: center;
+        margin-bottom: 19.375VW;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
+    .safety__item-img{
+        margin-bottom: 9.375VW;
+    }
+
+    .safety-item__text{
+        font-size: 4.0625VW;
+        line-height: 6.5625VW;
+        color: #969492;
+    }
+}
+
+
+
+@media (min-width: 992px){
+    .safety{
+        position: relative;
+    }
+    
+    .safety__bg{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .safety-cat{
+        position: relative;
+    }
+
+    .safety-cat__img{
+        text-align: center;
+        img{
+            width: 77.96875VW;
+        }
+    }
+    .safety-cat__img--mob{
+        display: none;
+    }
+
+    .safety-cat__form{
+        position: absolute;
+        left: 21vw;
+        top: 5.104166666666667VW;
+    }
+
+    .safety-cat__title{
+        font-size: 1.9270833333333335VW;
+        margin-bottom: 1.6666666666666667VW;
+        display: table;
+        text-transform: none;
+        font-weight: normal;
+        background: linear-gradient(180deg, #000000 67%, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #000;
+    }
+
+    .safety-cat__descr{
+        font-size: 0.8333333333333334VW;
+        color: #656667;
+        margin-bottom: 2.4479166666666665VW;
+    }
+
+    .safety-cat__form-inputs{
+        width: 19.947916666666668VW;
+        input{
+            height: 4.53125VW;
+            margin-bottom: 1.6145833333333335VW;
+            font-size: 0.8333333333333334VW;
+        }
+        .btn{
+            height: 4.53125VW;
+        }
+    }
+
+    .btn--safety-cat{
+        width: 100%;
+        border: none;
+    }
+
+
+
+    .container--safety{
+        width: 58.28124999999999VW;
+    }
+
+
+    .safety__title{
+        margin-top: 1.1458333333333333VW;
+        font-size: 2.3958333333333335VW;
+        margin-bottom: 1.1979166666666667VW;
+    }
+
+    .safety__title-descr{
+        text-align: center;
+        font-size: 0.8333333333333334VW;
+        color: #656564;
+        margin-bottom: 3.90625VW;
+    }
+
+    .wrap--safety{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .safety__item{
+        width: 14.895833333333334VW;
+    }
+
+    .safety__item--has-line{
+        position: relative;
+        &:after{
+            content: '';
+            display: block;
+            height: 7.552083333333333VW;
+            width: 0.052083333333333336VW;
+            right: -2.4479166666666665VW;
+            top: 0;
+            background-color: #dfdfdf;
+            position: absolute;
+        }
+    }
+
+    .safety__item-img{
+        margin-bottom: 1.1458333333333333VW;
+        position: relative;
+        left: 0.625VW;
+    }
+
+    .safety-item__text{
+        font-size: 0.7291666666666666VW;
+        line-height: 1.25VW;
+        color: #ababab;
+    }
+}

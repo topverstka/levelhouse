@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="RU">
+<head>
+	<meta charset="utf-8">
+	<title>Level House</title>
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Описание проекта">
+	<link rel="icon" href="./img/favicon.ico">
+	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/aos.css">
+	<link rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+
+	<!-- Кастомые анимации -->
+	<link rel="stylesheet" href="./css/animation.css">
+	<!-- / Кастомые анимации -->
+
+	<link rel="stylesheet" href="./css/lightgallery.min.css">
+	<link rel="stylesheet" href="./fonts/Gilroy/fonts.css"> 
+    <link rel="stylesheet" href="./css/front.css"> 
+</head> 
+
+
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="wrap">
+				<!-- Логотип -->
+				
+				<div class="header__logo header__logo--pc">
+					<a class="header__logo-img" href="#">
+						<img src="./img/first-screen/logo.png" alt="Logo">
+					</a>
+					<a class="header__logo-img night-mode" href="#">
+						<img src="./img/logo-white.png" alt="Logo">
+					</a>
+					<p class="header__logo-descr header__logo-descr--pc">Коттеджный поселок для счастливой жизни</p>
+					<div class="night-switcher">
+						<i class="night-switcher-ico-1">
+							<img src="./img/header/night-ico.png" alt="night">
+						</i>
+						<i class="night-switcher-ico-2">
+							<img src="./img/header/day-ico.png" alt="day">
+						</i>
+					</div>
+				</div>
+				
+
+				<div class="header__rightelems">
+					<!-- Элемент с презентацией -->
+					<a class="header__presentation header__presentation--pc" href="#">
+						<img src="./img/first-screen/pdf-icon.png" alt="pdf">
+						<span>Скачать презентацию</span>
+					</a>
+
+					<!-- Элемент контактов -->
+					<div class="header__contacts header__contacts--pc">
+						<span itemprop="telephone">
+							<img src="./img/first-screen/phone.png" alt="phone">
+							<a class="header__contacts-phone" href="tel:84951077788" rel="nofollow">8 (495) 107-77-88</a>
+						</span>
+					</div>
+
+					<!-- Бургер для меню -->
+					<a class="header__burger">
+						<span></span>
+						<span></span>
+						<span></span>
+					</a>
+				</div>
+				
+				
+			</div>
+		</div>
+	</header>
+
+	<!-- Мобильное меню -->
+	<div class="header__nav">
+		<div class="container">
+			<div class="wrap">
+				<!-- Закрывающий элемент -->
+				<div class="close">
+					<span></span>
+					<span></span>
+				</div>
+
+				
+
+				<!-- Мобильная навигация -->
+				<nav>
+					<ul>
+						<li><a href="#">Главная</a></li>
+						<li><a href="#">Кейсы</a></li>
+						<li><a href="#">Отзывы</a></li>
+						<li><a href="#">Контакты</a></li>
+					</ul>
+				</nav>
+
+
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Первый экарн -->
+	<div class="first-screen">
+		<!-- Задний фон + пример того как мы вставляем изображения -->
+		<picture class="first-screen__bg">
+			<img src="./img/first-screen/bg.jpg" alt="Бэграунд" title="Бэграунд">
+		</picture>
+
+		<picture class="first-screen__bg night-mode">
+			<img src="./img/first-screen/bg-night.jpg" alt="Бэграунд" title="Бэграунд">
+		</picture>
+
+		<picture class="first-screen__bg first-screen__bg--mob">
+			<img src="./img/first-screen/bg-mob.jpg" alt="Бэграунд" title="Бэграунд">
+		</picture>
+
+		<picture class="first-screen__bg first-screen__bg--mob night-mode">
+			<img src="./img/first-screen/bg-mob-night.png" alt="Бэграунд" title="Бэграунд">
+		</picture>
+
+		<!-- <picture class="first-screen__decoration first-screen__decoration--1">
+			<source srcset="img/first-screen/decoration1.webp" type="image/webp">
+			<img src="./img/first-screen/decoration1.png" alt="Декорация" title="Декорация">
+		</picture>
+
+		<picture class="first-screen__decoration first-screen__decoration--2">
+			<source srcset="img/first-screen/decoration2.webp" type="image/webp">
+			<img src="./img/first-screen/decoration2.png" alt="Декорация" title="Декорация">
+		</picture> -->
+
+		<div class="container container-mob">
+			<div class="wrap">
+				<h1 class="first-screen__title">
+					<strong>Участки</strong>
+					<span class="first-screen__title-right">в коттед жном<br>
+						поселке с комфортом <br>
+						<span>бизнес-класса</span>
+					</span>
+				</h1>
+			</div>
+		</div>
+		<!-- Изображение доп объекта -->
+		<!-- <picture class="first-screen__hero-picture">
+			<source srcset="./img/first-screen/house.webp" type="image/webp">
+			<img src="./img/first-screen/house.png" alt="Hero" title="Hero">
+		</picture> -->
+
+		<div class="container">
+			<div class="wrap">
+				<!-- кнопки -->
+				<div class="first-screen__cat">
+					<a class="btn btn--modal btn--modal-order btn--firstscreen" href="#"><img src="./img/first-screen/house-icon.png" alt="house">Записаться на просмотр</a>
+					<a class="first-screen__presentation" href="#">
+						<img src="./img/first-screen/pdf-icon.png" alt="pdf">
+						<span>Скачать презентацию</span>
+					</a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- Второй экран -->
+	<div class="about">
+		<picture class="about__bg">
+			<source srcset="img/about/bg.webp" type="image/webp">
+			<img src="./img/about/bg.png" alt="Бэграунд" title="Бэграунд">
+		</picture>
+		<picture class="about__bg--mob">
+			<img src="./img/about/bg-mob.png" alt="Бэграунд" title="Бэграунд">
+		</picture>
+
+		<div class="container container--mob">
+			<div class="wrap">
+				<h2 class="about__title" data-aos="fade-up">Отдых с близкими там, <br> где видно небо</h2>
+			</div>
+			<div class="wrap">
+				<div class="about-slider swiper" data-aos="fade-up">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="about-slide">
+								<div class="about-slide-info">
+									<h3 class="about-slide__title">Вы сможете отдохнуть</h3>
+									<p class="about-slide__descr">
+										от шумного мегаполиса на тихой 
+										территории с чистым воздухом и 
+										настоящей природой</p>
+									<a class="btn btn--about" href="#"><img src="./img/about/box-icon.png" alt="box">Смотреть 3Д панораму</a>
+								</div>
+								<div class="about-slide-img">
+									<img src="./img/about/slide1.jpg" alt="Slide">
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-slide">
+								<div class="about-slide-info">
+									<h3 class="about-slide__title">Вы сможете отдохнуть</h3>
+									<p class="about-slide__descr">
+										от шумного мегаполиса на тихой 
+										территории с чистым воздухом и 
+										настоящей природой</p>
+									<a class="btn btn--about" href="#"><img src="./img/about/box-icon.png" alt="box">Смотреть 3Д панораму</a>
+								</div>
+								<div class="about-slide-img">
+									<img src="./img/about/slide1.jpg" alt="Slide">
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-slide">
+								<div class="about-slide-info">
+									<h3 class="about-slide__title">Вы сможете отдохнуть</h3>
+									<p class="about-slide__descr">
+										от шумного мегаполиса на тихой 
+										территории с чистым воздухом и 
+										настоящей природой</p>
+									<a class="btn btn--about" href="#"><img src="./img/about/box-icon.png" alt="box">Смотреть 3Д панораму</a>
+								</div>
+								<div class="about-slide-img">
+									<img src="./img/about/slide1.jpg" alt="Slide">
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-slide">
+								<div class="about-slide-info">
+									<h3 class="about-slide__title">Вы сможете отдохнуть</h3>
+									<p class="about-slide__descr">
+										от шумного мегаполиса на тихой 
+										территории с чистым воздухом и 
+										настоящей природой</p>
+									<a class="btn btn--about" href="#"><img src="./img/about/box-icon.png" alt="box">Смотреть 3Д панораму</a>
+								</div>
+								<div class="about-slide-img">
+									<img src="./img/about/slide1.jpg" alt="Slide">
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-slide">
+								<div class="about-slide-info">
+									<h3 class="about-slide__title">Вы сможете отдохнуть</h3>
+									<p class="about-slide__descr">
+										от шумного мегаполиса на тихой 
+										территории с чистым воздухом и 
+										настоящей природой</p>
+									<a class="btn btn--about" href="#"><img src="./img/about/box-icon.png" alt="box">Смотреть 3Д панораму</a>
+								</div>
+								<div class="about-slide-img">
+									<img src="./img/about/slide1.jpg" alt="Slide">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-pagination swiper-pagination--about"></div>
+				</div>
+			</div>
+
+			<div class="wrap">
+				<div class="about-advantages-slider swiper" data-aos="fade-up">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="about-advantages-slide">
+								<div class="about-advantages-slide-img">
+									<img src="./img/about/advantages-slide.jpg" alt="">
+								</div>
+								<div class="about-advantages-slide-info">
+									<h3 class="about-advantages-slide__title">Единственный заповедник<br>Московской области</h3>
+									<p class="about-advantages-slide__text">
+										Вас ждет отдых рядом с дикой природой. Вы сможете увидеть 
+										уникальные для Подмосковья растения и получить незабываемые 
+										впечатления от встречи с зубром в лесу.</p>
+									<a class="about-advantages-slide__action" href="#">Увеличить фото</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-advantages-slide">
+								<div class="about-advantages-slide-img">
+									<img src="./img/about/advantages-slide.jpg" alt="">
+								</div>
+								<div class="about-advantages-slide-info">
+									<h3 class="about-advantages-slide__title">Единственный заповедник<br>Московской области</h3>
+									<p class="about-advantages-slide__text">
+										Вас ждет отдых рядом с дикой природой. Вы сможете увидеть 
+										уникальные для Подмосковья растения и получить незабываемые 
+										впечатления от встречи с зубром в лесу.</p>
+									<a class="about-advantages-slide__action" href="#">Увеличить фото</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-advantages-slide">
+								<div class="about-advantages-slide-img">
+									<img src="./img/about/advantages-slide.jpg" alt="">
+								</div>
+								<div class="about-advantages-slide-info">
+									<h3 class="about-advantages-slide__title">Единственный заповедник<br>Московской области</h3>
+									<p class="about-advantages-slide__text">
+										Вас ждет отдых рядом с дикой природой. Вы сможете увидеть 
+										уникальные для Подмосковья растения и получить незабываемые 
+										впечатления от встречи с зубром в лесу.</p>
+									<a class="about-advantages-slide__action" href="#">Увеличить фото</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-advantages-slide">
+								<div class="about-advantages-slide-img">
+									<img src="./img/about/advantages-slide.jpg" alt="">
+								</div>
+								<div class="about-advantages-slide-info">
+									<h3 class="about-advantages-slide__title">Единственный заповедник<br>Московской области</h3>
+									<p class="about-advantages-slide__text">
+										Вас ждет отдых рядом с дикой природой. Вы сможете увидеть 
+										уникальные для Подмосковья растения и получить незабываемые 
+										впечатления от встречи с зубром в лесу.</p>
+									<a class="about-advantages-slide__action" href="#">Увеличить фото</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-advantages-slide">
+								<div class="about-advantages-slide-img">
+									<img src="./img/about/advantages-slide.jpg" alt="">
+								</div>
+								<div class="about-advantages-slide-info">
+									<h3 class="about-advantages-slide__title">Единственный заповедник<br>Московской области</h3>
+									<p class="about-advantages-slide__text">
+										Вас ждет отдых рядом с дикой природой. Вы сможете увидеть 
+										уникальные для Подмосковья растения и получить незабываемые 
+										впечатления от встречи с зубром в лесу.</p>
+									<a class="about-advantages-slide__action" href="#">Увеличить фото</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="about-advantages-slide">
+								<div class="about-advantages-slide-img">
+									<img src="./img/about/advantages-slide.jpg" alt="">
+								</div>
+								<div class="about-advantages-slide-info">
+									<h3 class="about-advantages-slide__title">Единственный заповедник<br>Московской области</h3>
+									<p class="about-advantages-slide__text">
+										Вас ждет отдых рядом с дикой природой. Вы сможете увидеть 
+										уникальные для Подмосковья растения и получить незабываемые 
+										впечатления от встречи с зубром в лесу.</p>
+									<a class="about-advantages-slide__action" href="#">Увеличить фото</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="about-advantages-slider__controls">
+					<!-- If we need navigation buttons -->
+					<div class="swiper-button-prev swiper-btn swiper-btn-prev swiper-prev--about-advantages"></div>
+					<div class="swiper-pagination swiper-pagination--about-advantages"></div>
+					<div class="swiper-button-next swiper-btn swiper-btn-next swiper-next--about-advantages"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Третий экран -->
+	<div class="relax">
+		<picture class="relax__bg">
+			<source srcset="img/relax/bg.webp" type="image/webp">
+			<img src="./img/relax/bg.jpg" alt="Бэграунд" title="Бэграунд">
+		</picture>
+		<picture class="relax__bg night-mode">
+			<img src="./img/relax/bg-night.jpg" alt="Бэграунд" title="Бэграунд">
+		</picture>
+
+		
+		
+
+		<div class="container">
+			<div class="wrap">
+				<p class="relax__pretitle" data-aos="fade-up">Отдых там,где всегда</p>
+				<h2 class="relax__title" data-aos="fade-up">чисто и красиво</h2>
+			</div>
+		</div>
+		<picture class="relax__bg relax__bg--mob">
+			<img src="./img/relax/bg-mob.png" alt="Бэграунд" title="Бэграунд">
+		</picture>
+		<picture class="relax__bg relax__bg--mob night-mode">
+			<img src="./img/relax/bg-mob-night.png" alt="Бэграунд" title="Бэграунд">
+		</picture>
+		<div class="container container-relax">
+			<div class="wrap wrap--relax" data-aos="fade-up">
+				<div class="relax-box relax-box--1">
+					<p>Обслуживающая организация проследит за 
+						исправной работой шлагбаума на въезде
+						и чистотой улиц.</p>
+				</div>
+				<div class="relax-box relax-box--2">
+					<p>В вашем поселке содержанием территории 
+						занимается обслуживающая организация.</p>
+				</div>
+				<div class="relax-box relax-box--3">
+					<p>Вам не нужно заботиться об уборке снега, 
+						вывозе мусора, содержании и ремонте дорог.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Четвертый экран -->
+	<div class="presentation">
+		<div class="container">
+			<div class="wrap">
+				<h2 class="presentaion__title" data-aos="fade-up">Получите презентацию</h2>
+			</div>
+			<div class="wrap">
+				<div class="presentation__offer">
+					<div class="presentation__offer-bg" data-aos="fade-up">
+						<img src="./img/presentation/book.png" alt="Книга">
+						<p class="presentation__offer-bg-text">
+							Получите
+							<span>презентацию</span>
+						</p>
+					</div>
+					<form action="#" class="presentation__offer-form" data-aos="zoom-in">
+						<h3 class="presentation__offer-form-title">Оставьте заявку</h3>
+						<p class="presentation__offer-form-descr">и мы вышлем вам презентацию</p>
+						<input type="text" placeholder="Ваш номер телефона">
+						<input type="text" placeholder="Ваш email">
+						<button class="btn btn--presentation__offer-form" type="submit">Получить презентацию</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container container--presentation">
+			<div class="wrap">
+				<div class="presentation-advantages" data-aos="fade-up">
+					<div class="presentation-advantages__info">
+						<h3 class="presentation-advantages__title">Ландшафный <br>
+							дизайн по всей <br>
+							территории поселка</h3>
+						<p class="presentation-advantages__text">
+							Территория посёлка выполнена с 
+							соблюдением дизайна заложенным 
+							архитектором. Поэтому всё выглядит 
+							законченным и лаконичным.
+						</p>
+					</div>
+					<div class="presentation-advantages__img">
+						<img src="./img/presentation/advantages1.jpg" alt="house">
+					</div>
+				</div>
+				<div class="presentation-advantages presentation-advantages--reverse" data-aos="fade-up">
+					<div class="presentation-advantages__info">
+						<h3 class="presentation-advantages__title">Ландшафный 
+							дизайн по всей 
+							территории поселка</h3>
+						<p class="presentation-advantages__text">
+							Территория посёлка выполнена с 
+							соблюдением дизайна заложенным 
+							архитектором. Поэтому всё выглядит 
+							законченным и лаконичным.
+						</p>
+					</div>
+					<div class="presentation-advantages__img">
+						<img src="./img/presentation/advantages1.jpg" alt="house">
+					</div>
+				</div>
+			</div>
+			<div class="wrap">
+				<h2 class="presentaion__title presentaion__title--chill" data-aos="fade-up">Отдых там, где вам удобно</h2>
+				<p class="presentaion__title-descr" data-aos="fade-up">У вас будет все необходимое для<br> для комфортного отдыха с близкими</p>
+			</div>
+		</div>
+		<div class="container container--presentation-box">
+	
+			<div class="wrap wrap--presentation-box">
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box1.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Продуктовый магазин</h3>
+						<p class="presentation-box-descr">
+							и фермерский рынок 
+							с экологически чистыми 
+							продуктами</p>
+					</div>
+				</div>
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box2.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Детские площадки</h3>
+						<p class="presentation-box-descr">
+							3 современныеи безопасные детские площадки</p>
+					</div>
+				</div>
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box3.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Паркинг</h3>
+						<p class="presentation-box-descr">
+							для ваших гостей</p>
+					</div>
+				</div>
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box4.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Спортплощадки</h3>
+						<p class="presentation-box-descr">
+							для футбола, баскетбола, тенниса, хоккеяи пейтбольный клуб</p>
+					</div>
+				</div>
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box5.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Площадки<br>для собак</h3>
+					</div>
+				</div>
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box6.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Русская баня</h3>
+						<p class="presentation-box-descr">
+							и турецкий хаммам</p>
+					</div>
+				</div>
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box7.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Контактный<br>зоопарк</h3>
+					</div>
+				</div>
+				<div class="presentation-box" data-aos="fade-up">
+					<div class="presentation-box__img">
+						<img src="./img/presentation/box8.jpg" alt="image">
+					</div>
+					<div class="presentation-box__info">
+						<h3 class="presentation-box__title">Аэродром</h3>
+						<p class="presentation-box-descr">
+							для взлета-посадки в любое время суток</p>
+					</div>
+				</div>
+			</div>
+			<div class="wrap wrap--presentaion--bottom">
+				<h2 class="presentaion__title presentaion__title--bottom" data-aos="fade-up">Широкие дороги,<br>тротуары и аллеи</h2>
+				<p class="presentaion__bottom-descr" data-aos="fade-up">Между участком и дорогой тротуары по<br>
+					6 метров в ширину, освещаемые ночью</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Пятный экран -->
+	<div class="house">
+		<div class="house__bg">
+			<img src="./img/house/bg.jpg" alt="bg">
+		</div>
+		<div class="house__bg night-mode">
+			<img src="./img/house/bg-night.jpg" alt="bg">
+		</div>
+		
+		<div class="container">
+			<div class="wrap" data-aos="fade-up">
+				<p class="house__pretitle">Отдых на природе,</p>
+				<h2 class="house__title">с удобствами города</h2>
+				<p class="house__title-descr">Для нас идеальная загородная жизнь — это привычные городские блага цивилизации</p>
+			</div>
+		</div>
+		<div class="house__bg house__bg--mob">
+			<img src="./img/house/bg-mob.png" alt="bg">
+		</div>
+		<div class="house__bg house__bg--mob night-mode">
+			<img src="./img/house/bg-mob-night.png" alt="bg">
+		</div>
+		<div class="container container--house-card">
+			<div class="wrap">
+				<div class="house-card house-card--1" data-aos="zoom-in">
+					<div class="house-card__icon">
+						<img src="./img/house/1-icon.png" alt="icon">
+					</div>
+					<p class="house-card__text">Высоскоскортной интернет<br>
+						и мобильная связь</p>
+				</div>
+				<div class="house-card house-card--2" data-aos="zoom-in">
+					<div class="house-card__icon">
+						<img src="./img/house/2-icon.png" alt="icon">
+					</div>
+					<p class="house-card__text">Электричество<br>
+						по дешевым тарифам</p>
+				</div>
+				<div class="house-card house-card--3" data-aos="zoom-in">
+					<div class="house-card__icon">
+						<img src="./img/house/3-icon.png" alt="icon">
+					</div>
+					<p class="house-card__text">Автономное водоснобжение<br> 
+						и конализация</p>
+				</div>
+				<div class="house-card house-card--4" data-aos="zoom-in">
+					<div class="house-card__icon">
+						<img src="./img/house/4-icon.png" alt="icon">
+					</div>
+					<p class="house-card__text">Мобильное приложение для управления<br>
+						инженерными системами</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- шестой экран -->
+	<div class="safety">
+		<div class="safety__bg">
+			<img src="./img/safety/bg.png" alt="bg">
+		</div>
+		<div class="safety-cat" data-aos="fade-up">
+			<div class="safety-cat__img">
+				<img src="./img/safety/hand.png" alt="hand">
+			</div>
+			<form action="#" class="safety-cat__form" data-aos="zoom-in">
+				<h3 class="safety-cat__title">Связаться с нами</h3>
+				<p class="safety-cat__descr">Оставьте заявку и мы перезвоним вам в течении 5 минут</p>
+				<div class="safety-cat__form-inputs">
+					<input type="text" placeholder="Ваш номер телефона">
+					<input type="text" placeholder="Ваш email">
+					<button class="btn btn--safety-cat" type="submit">Оставить заявку</button>
+				</div>
+			</form>
+			<div class="safety-cat__img safety-cat__img--mob">
+				<img src="./img/safety/hand-mob.png" alt="hand-mob">
+			</div>
+		</div>
+		<div class="container container--safety">
+			<div class="wrap">
+				<h2 class="safety__title" data-aos="fade-up">Отдых там,где безопасно</h2>
+				<p class="safety__title-descr" data-aos="fade-up">Нам было важно создать атмосферу безопасности и добрососедства. Мы это сделали</p>
+			</div>
+			<div class="wrap wrap--safety">
+				<div class="safety__item safety__item--has-line" data-aos="fade-up">
+					<div class="safety__item-img">
+						<img src="./img/safety/1-icon.png" alt="icon">
+					</div>
+					<p class="safety-item__text">Видеонаблюдение и охранная<br>
+						организация, контролирует порядок 24/7</p>
+				</div>
+
+				<div class="safety__item safety__item--has-line" data-aos="fade-up">
+					<div class="safety__item-img">
+						<img src="./img/safety/2-icon.png" alt="icon">
+					</div>
+					<p class="safety-item__text">Вы можете без страха гулять по вечерам 
+						и не переживать за ребенка на<br>
+						территории поселка</p>
+				</div>
+
+				<div class="safety__item">
+					<div class="safety__item-img" data-aos="fade-up">
+						<img src="./img/safety/3-icon.png" alt="icon">
+					</div>
+					<p class="safety-item__text">Вы знаете всех соседей в лицо и уверены,<br>
+						что рядом нет посторонних</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="projects">
+		<div class="container">
+			<div class="wrap">
+				<h2 class="projects__title" data-aos="fade-up">Примеры проектов домов </h2>
+				<p class="projects__title-descr" data-aos="fade-up">от архитектурного бюро Романова Леонидова</p>
+			</div>
+		</div>
+		<div class="container container--projects">
+			<div class="wrap">
+				<div class="swiper projects-slider" data-aos="fade-up">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="projects-slide">
+								<span class="projects-slide__size">110 М²</span>
+								<div class="projects-slide__img lightgallery">
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide active" data-slide="1">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="2">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="3">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="4">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+								</div>
+								<div class="projects-slide__content">
+									<div class="projects-slide__tabs">
+										<div class="projects-slide__tab active" data-slide="1">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="2">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="3">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="4">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+									</div>
+								</div>
+								<a class="btn btn--modal btn--modal-order btn--projects" href="#"><img src="./img/first-screen/house-icon.png" alt="house">Хочу такой дом</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="projects-slide">
+								<span class="projects-slide__size">110 М²</span>
+								<div class="projects-slide__img lightgallery2">
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide active" data-slide="1">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="2">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="3">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="4">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+								</div>
+								<div class="projects-slide__content">
+									<div class="projects-slide__tabs">
+										<div class="projects-slide__tab active" data-slide="1">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="2">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="3">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="4">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+									</div>
+								</div>
+								<a class="btn btn--modal btn--modal-order btn--projects" href="#"><img src="./img/first-screen/house-icon.png" alt="house">Хочу такой дом</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="projects-slide">
+								<span class="projects-slide__size">110 М²</span>
+								<div class="projects-slide__img lightgallery3">
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide active" data-slide="1">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="2">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="3">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="4">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+								</div>
+								<div class="projects-slide__content">
+									<div class="projects-slide__tabs">
+										<div class="projects-slide__tab active" data-slide="1">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="2">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="3">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="4">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+									</div>
+								</div>
+								<a class="btn btn--modal btn--modal-order btn--projects" href="#"><img src="./img/first-screen/house-icon.png" alt="house">Хочу такой дом</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="projects-slide">
+								<span class="projects-slide__size">110 М²</span>
+								<div class="projects-slide__img lightgallery4">
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide active" data-slide="1">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="2">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="3">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="4">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+								</div>
+								<div class="projects-slide__content">
+									<div class="projects-slide__tabs">
+										<div class="projects-slide__tab active" data-slide="1">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="2">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="3">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="4">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+									</div>
+								</div>
+								<a class="btn btn--modal btn--modal-order btn--projects" href="#"><img src="./img/first-screen/house-icon.png" alt="house">Хочу такой дом</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="projects-slide">
+								<span class="projects-slide__size">110 М²</span>
+								<div class="projects-slide__img lightgallery5">
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide active" data-slide="1">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="2">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="3">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+									<a href="./img/projects/slide1.jpg" class="projects-slide__img-slide" data-slide="4">
+										<img src="./img/projects/slide1.jpg" alt="house">
+									</a>
+								</div>
+								<div class="projects-slide__content">
+									<div class="projects-slide__tabs">
+										<div class="projects-slide__tab active" data-slide="1">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="2">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="3">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+										<div class="projects-slide__tab" data-slide="4">
+											<div class="projects-slide__tab-img">
+												<img src="./img/projects/slide1.jpg" alt="house">
+											</div>
+										</div>
+									</div>
+								</div>
+								<a class="btn btn--modal btn--modal-order btn--projects" href="#"><img src="./img/first-screen/house-icon.png" alt="house">Хочу такой дом</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="projects-slider__controls" data-aos="fade-up">
+					<!-- If we need navigation buttons -->
+					<div class="swiper-button-prev swiper-btn swiper-btn-prev swiper-prev--projects"></div>
+					<div class="swiper-pagination swiper-pagination--projects"></div>
+					<div class="swiper-button-next swiper-btn swiper-btn-next swiper-next--projects"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="map">
+		<div class="container">
+			<div class="wrap">
+				<h2 class="map__title" data-aos="fade-up">Где находится поселок</h2>
+			</div>
+			<div class="wrap">
+				<div class="map__img" data-aos="fade-up">
+					<img src="./img/map/map.jpg" alt="map">
+				</div>
+				<div class="map__img map__img--img" data-aos="fade-up">
+					<img src="./img/map/map-mob.png" alt="map">
+				</div>
+				<div class="map-info" data-aos="fade-up">
+					<p class="map-info__adress">Московская обл., д. Новинки<br> Бегичево, 142200</p>
+					<p class="map-info__coord">Координаты места: Широта: 54.981   Долгота: 37.649</p>
+					<div class="map-info__advantages">
+						<p class="map-info__advantages-item">45 минут по трассе М2</p>
+						<p class="map-info__advantages-item">77 км до Москвы</p>
+						<p class="map-info__advantages-item">15 минут до р.Ока</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="contacts">
+		<div class="contacts__bg">
+			<img src="./img/contacts/bg.png" alt="bg">
+		</div>
+		<div class="container container--contacts">
+			<div class="wrap">
+				<h2 class="contacts__title" data-aos="fade-up">
+					<strong>Контакты</strong>
+					<span>Адрес офиса: БЦ «Гранд Сетунь Плаза»<br>
+						Горбунова yлица, д. 2 стр. 3, Москва, 121596</span>
+				</h2>
+			</div>
+			<div class="wrap">
+				<div class="contacts__img">
+					<img src="./img/contacts/big-phone.png" alt="phone">
+				</div>
+				<div class="contacts__phones">
+					<div class="contacts__phone" data-aos="zoom-in">
+						<div class="contacts__phone-option">1</div>
+						<div class="contacts__phone-icon">
+							<img src="./img/contacts/phone-icon.png" alt="phone">
+						</div>
+						<a href="tel:84951077788" class="contacts__phone-number">8 (495) 107-77-88</a>
+					</div>
+
+					<div class="contacts__phone" data-aos="zoom-in">
+						<div class="contacts__phone-option">2</div>
+						<div class="contacts__phone-icon">
+							<img src="./img/contacts/phone-icon.png" alt="phone">
+						</div>
+						<a href="tel:+79771057788" class="contacts__phone-number">+7 (977) 105 77 88</a>
+					</div>
+
+					<div class="contacts__phone" data-aos="zoom-in">
+						<div class="contacts__phone-option">3</div>
+						<div class="contacts__phone-icon">
+							<img src="./img/contacts/phone-icon.png" alt="phone">
+						</div>
+						<a href="tel:+79771057788" class="contacts__phone-number">+7 (977) 105 77 88</a>
+					</div>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="contacts__email">
+					<a class="contacts__email-link" href="#" data-aos="fade-up">
+						<img src="./img/contacts/email.png" alt="email">
+						<span>info@level-house.com</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Футер -->
+	<footer class="footer">
+		<div class="footer-decortion">
+			<img src="./img/footer/decoration.png" alt="decoration">
+		</div>
+		<div class="footer-decortion footer-decortion--mob">
+			<img src="./img/footer/decoration-mob.png" alt="decoration">
+		</div>
+		<div class="container">
+			<div class="wrap">
+				<div class="footer__logo">
+					<img src="./img/footer/logo.png" alt="logo">
+					<p class="footer__logo-descr">Коттеджный поселок <br>
+						для счастливой жизни</p>
+				</div>
+				<a class="btn btn--modal btn--modal-order btn--footer" href="#"><img src="./img/first-screen/house-icon.png" alt="house">Записаться на просмотр</a>
+				<div class="footer-right">
+					<a class="footer__presentation" href="#">
+						<img src="./img/first-screen/pdf-icon.png" alt="pdf">
+						<span>Скачать презентацию</span>
+					</a>
+					<a class="header__burger header__burger--footer">
+						<span></span>
+						<span></span>
+						<span></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<div class="social-links">
+		<a href="#">
+			<img src="./img/social/fb.png" alt="fb">
+		</a>
+		<a href="#">
+			<img src="./img/social/inst.png" alt="inst">
+		</a>
+		<a href="#">
+			<img src="./img/social/telegram.png" alt="telegram">
+		</a>
+		<a href="#">
+			<img src="./img/social/watsapp.png" alt="whatsapp">
+		</a>
+	</div>
+
+
+	<!-- Модальное окно -->
+	<div class="modal">
+		<div class="modal-overlay"></div>
+
+		<div class="modal-window modal-window--order">
+			<h3 class="modal-window__title">Записаться на просмотр</h3>
+			<p class="modal-window__descr">Оставьте заявку и мы перезвоним вам в течении 5 минут</p>
+			<form action="#" class="modal-window__form">
+				<input class="modal-window__form-input" type="text" name="name" placeholder="Имя">
+				<input class="modal-window__form-input" type="text" name="phone" placeholder="Телефон">
+				<button class="btn btn--accent btn--full btn--modal-form" type="submit">Оставить заявку</button>
+				<p class="modal-window__privacy">Нажимая на "Оставить заявку" вы соглашаетесь с <a href="#" class="btn--modal btn--modal-privacy">политикой конфиденциальности</a></p>
+			</form>
+		</div>
+
+		<div class="modal-window modal-window--privacy">
+			<h3 class="modal-window__title">Политика конфиденциальности</h3>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+		</div>
+
+	</div>
+
+
+
+	<!-- Подключение скриптов -->
+	<script src="./js/swiper-bundle.min.js"></script>
+	<script src="./js/aos.js" defer></script>
+
+	<!-- lightgallery -->
+	<script src="./js/lightGallary/lightgallery.min.js" defer></script>
+	<script src="./js/lightGallary/lg-thumbnails.js" defer></script>
+	<script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js" defer></script>
+    <script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js" defer></script>
+	<script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js" defer></script>
+
+	<script src="./js/app.js" defer></script>
+
+
+	<script>
+		var swiper = new Swiper(".about-slider", {
+			slidesPerView: 1,
+			pagination: {
+				el: ".swiper-pagination--about",
+				clickable: true,
+			},
+			breakpoints: {
+					0: {
+						
+						spaceBetween: 20,
+					},
+					992: {
+						direction: "vertical",
+						spaceBetween: 20,
+					},
+				}
+		});
+
+		// Слайдер с контрольными точками
+		var swiper = new Swiper('.about-advantages-slider', {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: false,
+			// init: false,
+			pagination: {
+			el: '.swiper-pagination--about-advantages',
+			clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-next--about-advantages',
+				prevEl: '.swiper-prev--about-advantages',
+			},
+
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+			}
+		});
+
+
+
+		var swiper = new Swiper('.projects-slider', {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			centeredSlides: true,
+			// init: false,
+			pagination: {
+			el: '.swiper-pagination--projects',
+			clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-next--projects',
+				prevEl: '.swiper-prev--projects',
+			},
+
+			breakpoints: {
+			0: {
+				slidesPerView: 1,
+				spaceBetween: 20,
+			},
+			992: {
+				slidesPerView: 3,
+				spaceBetween: 60,
+			},
+			}
+		});
+	  </script>
+	
+</body>
+</html>
